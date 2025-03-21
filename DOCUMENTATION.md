@@ -1,4 +1,4 @@
-🚀 Update - [Today's Date]
+🚀 Update - [20/03/2025]
 
 ✅ Implemented Features:
 1- Homepage: Developed using Next.js and React Query for efficient data fetching and state management.
