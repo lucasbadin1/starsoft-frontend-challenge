@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import NftCard from "./nft_card";
+import LoadMoreButton from "./Button/load_more"
+import LoadFinished from "./Button/load_finished";
 
 type Product = {
   id: string;
@@ -19,7 +21,7 @@ const fetchProducts = async (page: number) => {
   if (!res.ok) throw new Error("Erro ao buscar os produtos");
 
   const data = await res.json();
-  console.log("🚀 Dados recebidos da API:", data); // Debug
+  console.log("Dados recebidos da API:", data);
 
   return data.data;
 };
@@ -44,7 +46,7 @@ export default function NftList() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bg-night mt-[12rem] mx-[8.5rem]">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bg-night mt-35 mx-34">
         {products.length > 0 ? (
           products.map((product) => (
             <NftCard key={product.id} product={product} />
@@ -55,17 +57,9 @@ export default function NftList() {
       </div>
 
       {data?.length === 0 ? (
-        <p className="text-center mt-4 font-bold text-gray-500">
-          Você já viu tudo
-        </p>
+        <LoadFinished/>
       ) : (
-        <button
-          onClick={() => setPage((prev) => prev + 1)}
-          className="mt-4 p-2 bg-orange-500 text-white rounded"
-          disabled={isLoading}
-        >
-          {isLoading ? "Carregando..." : "Ver mais"}
-        </button>
+        <LoadMoreButton isLoading={isLoading} setPage={setPage} />
       )}
     </div>
   );
