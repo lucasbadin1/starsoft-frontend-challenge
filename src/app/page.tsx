@@ -4,7 +4,7 @@ import NftList from "@/components/nft-list";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
       <Header />
       <NftList />
       <Footer />

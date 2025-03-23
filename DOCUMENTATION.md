@@ -40,3 +40,24 @@
 - Renamed top bar component to Header for consistency.
 - Standardized file naming (ex: nft_list.tsx → nft-list.tsx ...).
 - Added missing Footer component to the homepage. 
+
+✅ Implemented Features:
+1️⃣ Cart State Optimization & Redux Enhancements:
+-Refactored cart logic by replacing multiple iterations with reduce, optimizing total price calculation.
+-Enhanced Redux actions (addToCart, removeFromCart, updateQuantity) for better state scalability.
+-Improved Sheet behavior, ensuring smooth opening/closing and preventing overlay issues.
+
+2️⃣ UI & UX Fixes:
+-Fixed sheet overlay problem, preventing unwanted black background covering the main page.
+-Improved Cart UI responsiveness, ensuring a seamless experience across all screen sizes.
+-Ensured proper component structure, aligning with best practices for modular and reusable design.
+
+3️⃣ Code Organization & Performance Improvements:
+-Refactored file naming conventions (e.g., nft_list.tsx → nft-list.tsx) for consistency.
+-Added missing Footer component to the homepage, improving UI completeness.
+-Applied clean code principles, reducing redundancy and improving maintainability.
+
+🔜 Next Steps:
+-Continue refining the Redux implementation, ensuring efficient state updates and event handling.
+-Further optimize performance, focusing on minimizing re-renders and improving data flow.
+-Enhance UI consistency, aligning all components with the Figma design for a polished final product.

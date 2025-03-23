@@ -4,14 +4,14 @@ import "./globals.css";
 import Providers from "./providers";
 
 const poppins = Poppins({
-  weight: ["100","200","300","400","500","600","700","800","900"],
-  subsets:["latin"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "NFT Marketplace",
-  description: "Discover, buy, and sell unique NFTs in a seamless and interactive marketplace.",
+  description:
+    "Discover, buy, and sell unique NFTs in a seamless and interactive marketplace.",
 };
 
 export default function RootLayout({
@@ -21,10 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.className} antialiased`}
-      >
-        <Providers>{children}</Providers>
+      <body className={`${poppins.className} antialiased`}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
