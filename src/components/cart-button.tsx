@@ -24,7 +24,7 @@ export default function CartButton({ product }: CartButtonProps) {
   const [open, setOpen] = useState(false);
 
   const handleAddToCart = () => {
-    setOpen(true); 
+    setOpen(true);
   };
 
   return (
@@ -37,7 +37,10 @@ export default function CartButton({ product }: CartButtonProps) {
       </button>
 
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent side="right" className="min-w-[800px] bg-night overflow-y-auto overflow-x-hidden max-h-screen">
+        <SheetContent
+          side="right"
+          className="min-w-[800px] bg-night overflow-y-auto overflow-x-hidden max-h-screen"
+        >
           <SheetHeader>
             <SheetTitle className="flex w-full gap-[20%] mt-[40px] ml-[70px]">
               <button className="bg-[#2B2B2B] w-12 h-12 flex items-center justify-center rounded-full">

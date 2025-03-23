@@ -1,11 +1,13 @@
-import Cart from "@/components/cart";
-import NftList from "@/components/nft_list";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import NftList from "@/components/nft-list";
 
 export default function Home() {
   return (
     <div>
-      <Cart />
+      <Header />
       <NftList />
+      <Footer />
     </div>
   );
 }

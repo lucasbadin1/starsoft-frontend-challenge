@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CartButton from "./cart_button";
+import CartButton from "./cart-button";
 
 type ProductProps = {
   product: {

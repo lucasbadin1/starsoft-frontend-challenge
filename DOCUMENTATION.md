@@ -34,3 +34,9 @@
 -Continue refining responsiveness and UI consistency across all pages.
 -Apply further optimizations for performance and maintainability.
 
+🚀 Update - [23/03/2025]
+
+🔹 Minor Adjustments & Fixes:
+- Renamed top bar component to Header for consistency.
+- Standardized file naming (ex: nft_list.tsx → nft-list.tsx ...).
+- Added missing Footer component to the homepage. 

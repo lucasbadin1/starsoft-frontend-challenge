@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import NftCard from "./nft_card";
-import LoadMoreButton from "./Button/load_more"
-import LoadFinished from "./Button/load_finished";
+import NftCard from "./nft-card";
+import LoadMoreButton from "./Button/load-more";
+import LoadFinished from "./Button/load-finished";
 
 type Product = {
   id: string;
@@ -33,7 +33,7 @@ export default function NftList() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products", page],
     queryFn: () => fetchProducts(page),
-    placeholderData: (previousData) => previousData ?? []
+    placeholderData: (previousData) => previousData ?? [],
   });
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function NftList() {
       </div>
 
       {data?.length === 0 ? (
-        <LoadFinished/>
+        <LoadFinished />
       ) : (
         <LoadMoreButton isLoading={isLoading} setPage={setPage} />
       )}
