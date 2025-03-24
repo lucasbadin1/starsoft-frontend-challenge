@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
-import NftCard from "./nft-card";
-import LoadMoreButton from "./Button/load-more";
-import LoadFinished from "./Button/load-finished";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import NftCard from "@/components/nft-card";
+import LoadMoreButton from "@/components/Button/load-more";
+import LoadFinished from "@/components/Button/load-finished";
 
 type Product = {
   id: string;
@@ -14,35 +13,47 @@ type Product = {
   price: number;
 };
 
-const fetchProducts = async (page: number) => {
+type FetchResponse = {
+  products: Product[];
+  nextPage?: number;
+};
+
+const fetchProducts = async ({ pageParam = 1 }): Promise<FetchResponse> => {
   const res = await fetch(
-    `https://starsoft-challenge-7dfd4a56a575.herokuapp.com/v1/products?page=${page}&limit=6`
+    `https://starsoft-challenge-7dfd4a56a575.herokuapp.com/v1/products?page=${pageParam}&limit=6`
   );
+
   if (!res.ok) throw new Error("Erro ao buscar os produtos");
 
   const data = await res.json();
-  console.log("Dados recebidos da API:", data);
 
-  return data.data;
+  return {
+    products: data.data,
+    nextPage: data.data.length > 0 ? pageParam + 1 : undefined,
+  };
 };
 
-export default function NftList() {
-  const [page, setPage] = useState(1);
-  const [products, setProducts] = useState<Product[]>([]);
+export default function NftList({
+  initialProducts,
+}: {
+  initialProducts: Product[];
+}) {
+  const { data, isFetchingNextPage, fetchNextPage, hasNextPage, status } =
+    useInfiniteQuery({
+      queryKey: ["products"],
+      queryFn: fetchProducts,
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) => lastPage.nextPage ?? undefined,
+    });
 
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["products", page],
-    queryFn: () => fetchProducts(page),
-    placeholderData: (previousData) => previousData ?? [],
-  });
+  const products =
+    data?.pages.flatMap((page) => page.products) ?? initialProducts;
 
-  useEffect(() => {
-    if (data) {
-      setProducts((prev) => [...prev, ...data]);
-    }
-  }, [data]);
-
-  if (isError) return <p>Erro: {error.message}</p>;
+  if (status === "pending") return <p>Carregando NFTs...</p>;
+  if (status === "error")
+    return (
+      <p className="text-red-500">Erro ao carregar NFTs. Tente novamente.</p>
+    );
 
   return (
     <div>
@@ -56,10 +67,13 @@ export default function NftList() {
         )}
       </div>
 
-      {data?.length === 0 ? (
-        <LoadFinished />
+      {hasNextPage ? (
+        <LoadMoreButton
+          isLoading={isFetchingNextPage}
+          onClick={() => fetchNextPage()}
+        />
       ) : (
-        <LoadMoreButton isLoading={isLoading} setPage={setPage} />
+        <LoadFinished />
       )}
     </div>
   );

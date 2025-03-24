@@ -1,11 +1,11 @@
 interface LoadMoreButtonProps {
   isLoading: boolean;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
+  onClick: () => void;
 }
 
 export default function LoadMoreButton({
   isLoading,
-  setPage,
+  onClick,
 }: LoadMoreButtonProps) {
   return (
     <div className="flex justify-center items-center mt-10">
@@ -18,7 +18,7 @@ export default function LoadMoreButton({
         </div>
 
         <button
-          onClick={() => setPage((prev) => prev + 1)}
+          onClick={onClick}
           className="w-full h-[86px] bg-slate text-heading text-xl text-white flex items-center justify-center font-semibold rounded-lg"
           disabled={isLoading}
         >

@@ -61,3 +61,15 @@
 -Continue refining the Redux implementation, ensuring efficient state updates and event handling.
 -Further optimize performance, focusing on minimizing re-renders and improving data flow.
 -Enhance UI consistency, aligning all components with the Figma design for a polished final product.
+
+🚀 Update - [24/03/2025]
+
+✅ Implemented Improvements:
+1️⃣ Optimized Data Fetching & Real-Time NFT Updates:
+-Tested SSR vs. SSG to optimize initial product loading and improve page performance.
+-Refactored Infinite Scroll Logic, enhancing React Query’s implementation for seamless product fetching.
+-Fixed pagination issues and improved button interactions for a smoother user experience.
+-Improved <LoadMoreButton />, removing unnecessary setPage prop and properly handling onClick.
+-Enhanced loading indicators to provide better feedback to users.
+
+📌 Note: This improvement was implemented considering that NFTs may be updated over time due to their value appreciation. By optimizing data fetching, we ensure that users always have access to the most up-to-date product information without unnecessary reloads.
