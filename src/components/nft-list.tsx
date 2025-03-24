@@ -56,8 +56,9 @@ export default function NftList({
     );
 
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bg-night mt-35 mx-34">
+    <div className="flex flex-col justify-center items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-center items-center bg-night mt-35 mx-10 md:mx-34">
+
         {products.length > 0 ? (
           products.map((product) => (
             <NftCard key={product.id} product={product} />

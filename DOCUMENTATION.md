@@ -73,3 +73,14 @@
 -Enhanced loading indicators to provide better feedback to users.
 
 📌 Note: This improvement was implemented considering that NFTs may be updated over time due to their value appreciation. By optimizing data fetching, we ensure that users always have access to the most up-to-date product information without unnecessary reloads.
+
+2️⃣ Cart UI & Responsiveness Enhancements:
+-Ensured cart items adapt responsively by switching to flex-col on screens below 768px, improving readability.
+-Improved layout structure to maintain image quality and consistency across different resolutions.
+-Adjusted button sizing dynamically for better usability on smaller screens.
+-Refactored Tailwind classes, enhancing maintainability and readability of the UI code.
+
+3️⃣ State Management & Performance Tweaks:
+-Optimized Redux store updates for better state consistency in the shopping cart.
+-Improved performance of re-renders by ensuring proper dependency handling in hooks.
+-Cleaned up unnecessary re-renders and event handlers, improving overall efficiency.

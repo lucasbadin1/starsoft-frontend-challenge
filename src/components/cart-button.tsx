@@ -45,7 +45,7 @@ export default function CartButton({ product }: CartButtonProps) {
     <>
       <button
         onClick={handleAddToCart}
-        className="mt-8 p-2 bg-orange text-white font-semibold text-base rounded-lg w-full h-14"
+        className="max-w-74 h-16 w-full mt-8 p-2 bg-orange text-white font-semibold text-base rounded-lg"
       >
         {quantity > 0 ? `COMPRAR (${quantity + 1})` : "COMPRAR"}
       </button>
@@ -58,11 +58,10 @@ export default function CartButton({ product }: CartButtonProps) {
       >
         <SheetContent
           side="right"
-          forceMount
-          className="min-w-[800px] bg-night overflow-hidden max-h-screen flex flex-col z-[999]"
+          className="max-w-[90vw] sm:min-w-[80vw] md:w-[60vw] lg:min-w-[55vw] xl:min-w-[800px] w-full bg-night overflow-hidden max-h-screen flex flex-col z-[999]"
         >
           <SheetHeader>
-            <SheetTitle className="flex w-full gap-[20%] mt-[40px] ml-[70px]">
+            <SheetTitle className="flex w-full gap-5 md:gap-[20%] mt-[40px] ml-7 md:ml-[70px]">
               <button
                 className="bg-[#2B2B2B] w-12 h-12 flex items-center justify-center rounded-full"
                 onClick={() => dispatch(closeCart())}
@@ -82,23 +81,24 @@ export default function CartButton({ product }: CartButtonProps) {
               cart.map((item) => (
                 <div
                   key={item.id}
-                  className="mt-[20px] min-h-[20px] flex rounded-lg px-7 py-5 bg-[#2B2B2B]"
+                  className="mt-[20px] min-h-[20px] flex flex-col md:flex-row items-center gap-2 rounded-lg px-7 py-5 bg-[#2B2B2B]"
                 >
                   <Image
                     src={item.image}
                     width={170}
-                    height={160}
+                    height={170}
                     alt={item.name}
-                    className="rounded-lg"
+                    className="rounded-lg object-contain"
                   />
-                  <div className="flex flex-col gap-2 pl-7">
+
+                  <div className="flex flex-col gap-1 pl-7">
                     <h2 className="text-heading text-lg font-medium text-white">
                       {item.name}
                     </h2>
-                    <p className="text-heading text-xs font-light text-white">
-                      {item.description}
-                    </p>
-                    <div className="flex items-center gap-3">
+                    <h3 className="text-heading text-xs font-light text-white line-clamp-2 sm:line-clamp-3">
+                      {product.description}
+                    </h3>
+                    <div className="flex items-center gap-4">
                       <Image
                         src="/Etherium.png"
                         width={30}
@@ -109,7 +109,7 @@ export default function CartButton({ product }: CartButtonProps) {
                         {item.price * item.quantity} ETH
                       </p>
                     </div>
-                    <div className="flex justify-between pt-2">
+                    <div className="flex justify-between items-center pt-2 pr-2">
                       <button className="bg-dark flex items-center justify-between px-4 gap-4 w-[115px] h-12 rounded-lg">
                         <p
                           className="text-heading text-sm font-semibold text-white cursor-pointer"
