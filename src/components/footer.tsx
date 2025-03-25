@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <div className="w-full h-19 flex items-center justify-center bg-night mt-10">
-      <p className="text-heading text-sm text-white text-opacity-40">
+    <div className="bg-night mt-10 flex h-19 w-full items-center justify-center">
+      <p className="text-heading text-opacity-40 text-sm text-white">
         STARSOFT © TODOS OS DIREITOS RESERVADOS
       </p>
     </div>

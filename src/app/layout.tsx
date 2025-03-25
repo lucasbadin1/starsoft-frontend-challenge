@@ -1,6 +1,6 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
 import Providers from "./providers";
 
 const poppins = Poppins({
@@ -10,8 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "NFT Marketplace",
-  description:
-    "Discover, buy, and sell unique NFTs in a seamless and interactive marketplace.",
+  description: "Discover, buy, and sell unique NFTs in a seamless and interactive marketplace.",
 };
 
 export default function RootLayout({
@@ -22,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

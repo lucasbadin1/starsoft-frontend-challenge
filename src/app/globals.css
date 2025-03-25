@@ -3,7 +3,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-
   --color-orange: #FF8310;
   --color-gray: #CCCCCC;
   --color-dark: #191A20;
@@ -17,10 +16,13 @@
 
 [data-slot="sheet-overlay"] {
   background: transparent !important;
-}  /* Hiding the Sheet's default overlay is being applied */
+} /* Hiding the Sheet's default overlay is being applied */
+
+.header-container {
+  @apply bg-night border-gray flex h-25 items-center justify-between border-b-2 px-11 py-7;
+}
 
 :root {
-
   --radius: 0.625rem;
 
   --background: #232323;
@@ -87,7 +89,6 @@
 }
 
 .dark {
-
   --background: oklch(0.145 0 0);
 
   --foreground: oklch(0.985 0 0);
@@ -152,7 +153,6 @@
 }
 
 @theme inline {
-
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);
