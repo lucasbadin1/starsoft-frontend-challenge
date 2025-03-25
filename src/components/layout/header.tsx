@@ -1,5 +1,5 @@
-import CartIcon from "./Header/cart-icon";
-import Logo from "./Header/logo";
+import CartIcon from "../ui/header/cart-icon";
+import Logo from "../ui/header/logo";
 
 export default function Header() {
   return (

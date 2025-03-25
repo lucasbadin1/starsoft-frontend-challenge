@@ -9,12 +9,12 @@ export default function DescriptionShowMore({ text }: DescriptionShowMoreProps) 
 
   return (
     <div>
-      <p className={`text-heading text-xs font-light transition-all duration-300 ${isExpanded ? "line-clamp-6" : "line-clamp-3"}`}>
+      <p className={`clamp-text ${isExpanded ? "clamp-6" : "clamp-3"}`}>
         {text}
       </p>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="text-orange text-xs font-bold mt-1 hover:underline"
+        className="btn-show-more"
       >
         {isExpanded ? "Ler menos" : "Ler mais"}
       </button>

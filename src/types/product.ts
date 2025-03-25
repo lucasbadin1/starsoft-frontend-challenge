@@ -5,3 +5,13 @@ export type Product = {
   image: string;
   price: number;
 };
+
+export type FetchResponse = {
+  products: Product[];
+  nextPage?: number;
+};
+
+export type NftCardProps = {
+    product: Product; 
+};
+
