@@ -84,3 +84,64 @@
 -Optimized Redux store updates for better state consistency in the shopping cart.
 -Improved performance of re-renders by ensuring proper dependency handling in hooks.
 -Cleaned up unnecessary re-renders and event handlers, improving overall efficiency.
+
+🚀 Update - [25/03/2025]
+
+✅ Implemented Features:
+1️⃣ Header Component Refactor & Modularization:
+
+1- Refactored Header Component:
+- Modularized the Header component for better separation of concerns and maintainability.
+- Applied clean code practices, improving the readability and scalability of the component.
+- Made the Header component reusable by isolating the layout and logic into smaller, isolated components where applicable.
+- Improved accessibility with proper ARIA attributes and ensured semantic HTML for better screen reader support.
+
+2️⃣ Restructured NFT Card List & Modularized Components:
+
+1- Restructured and Modularized NFT Card List:
+- Improved maintainability and readability by restructuring the NFT card list into reusable components.
+- Organized and modularized components (e.g., NFTCard, CartButton, DescriptionShowMore) for easier updates and future expansion.
+- Applied best practices for modular design, making it easier to scale as the project grows.
+
+2- Improved Component Organization:
+- Organized components into appropriate folders for better clarity and scalability.
+- Created specific folders for reusable UI elements like Button, Card, and Cart, ensuring clear separation of concerns.
+- Standardized component naming conventions, improving code consistency and understandability.
+
+3- Optimized Tailwind CSS Structure:
+- Refactored Tailwind CSS classes for improved readability and reusability.
+- Applied a consistent pattern for organizing Tailwind classes to enhance maintainability.
+- Ensured a cleaner design structure, making it easier to apply future design changes across components.
+
+3️⃣ Code Refactoring & Clean Code Practices:
+1- Implemented Clean Code Practices:
+Followed clean code principles throughout the project, including better naming conventions, improved function signatures, and simpler logic.
+Removed unnecessary code redundancies and applied logical separation, making code more understandable and maintainable.
+Enhanced overall code formatting, aligning with ESLint and Prettier configurations to ensure consistency.
+
+2- Improved TypeScript and Type Management:
+Created and organized a types folder to centralize TypeScript types, improving reusability and reducing type duplication.
+Ensured type safety and clearer code through consistent type definitions across components.
+
+3- Refined Imports and File Organization:
+3.1-Organized import statements following a clear convention:
+- External libraries
+- Next.js internal modules
+- Local components and store
+3.2- Improved folder structure for better scalability, ensuring that each feature can grow independently.
+
+4️⃣ UI/UX Enhancements:
+
+1- Improved Cart UI and Responsiveness:
+- Enhanced Cart UI to be more responsive, ensuring a seamless experience across various screen sizes.
+- Improved the behavior of the cart overlay, preventing issues where the cart sheet would incorrectly overlap the page.
+
+2- Enhanced Accessibility:
+- Improved accessibility by adding alt attributes to images, ensuring that the website is more inclusive for screen reader users.
+-Applied semantic HTML for better structure and accessibility across all components.
+
+5️⃣ Performance and Load Optimization:
+
+1-Dynamic Imports:
+- Applied dynamic imports to load heavy components only when necessary, improving performance, especially on initial page load.
+- Optimized the loading behavior of modals, large components, and other resource-heavy elements to enhance the user experience.
