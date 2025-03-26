@@ -10,4 +10,5 @@ export interface BackButtonProps {
 export interface FinalizeButtonProps {
   purchaseCompleted: boolean;
   onClick: () => void;
+  hasItems: boolean;
 }

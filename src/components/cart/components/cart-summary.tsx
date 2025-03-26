@@ -1,12 +1,16 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { RootState } from "@/store/store"; 
+import { useDispatch, useSelector } from "react-redux";
 import { CartSummaryProps } from "@/types/cart";
 import { clearCart } from "@/store/features/cart-slice";
 import FinalizeButton from "./button/finalize-button";
 
 export default function CartSummary({ totalPrice }: CartSummaryProps) {
   const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart.items);
+  const hasItems = cart.length > 0;
+
   const [purchaseCompleted, setPurchaseCompleted] = useState(false);
 
   const handleFinalizePurchase = () => {
@@ -27,6 +31,7 @@ export default function CartSummary({ totalPrice }: CartSummaryProps) {
       <FinalizeButton
         purchaseCompleted={purchaseCompleted}
         onClick={purchaseCompleted ? () => {} : handleFinalizePurchase}
+        hasItems={hasItems}
       />
     </div>
   );
