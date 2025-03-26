@@ -1,0 +1,419 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-orange: #FF8310;
+  --color-gray: #CCCCCC;
+  --color-dark: #191A20;
+  --color-night: #232323;
+  --color-slate: #393939;
+  --color-charcoal: #2B2B2B;
+
+  --font-heading: var(--font-poppins);
+
+  --radius-lg: 0.5rem;
+}
+
+[data-slot="sheet-overlay"] {
+  background: transparent !important;
+} /* Hiding the Sheet's default overlay is being applied */
+
+/*Header*/
+
+.header-container {
+  @apply bg-night border-gray flex h-25 items-center justify-between border-b-2 px-11 py-7;
+}
+.header-container-cart {
+  @apply flex items-center gap-3 text-white;
+}
+.header-shopping-bag {
+  @apply text-orange cursor-pointer;
+}
+
+/*Nft List*/
+
+.list-container {
+  @apply flex flex-col items-center justify-center;
+}
+.list-grid {
+  @apply bg-night mx-10 mt-35 grid grid-cols-1 items-center justify-center gap-6 sm:grid-cols-1 md:mx-34 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+}
+
+/* Button load */
+
+.btn-container {
+  @apply mt-10 flex items-center justify-center;
+}
+.card-container {
+  @apply flex min-h-25 min-w-100 flex-col space-y-2 p-4;
+}
+.btn-load {
+  @apply bg-slate flex h-21.5 w-full items-center justify-center rounded-lg text-xl font-semibold text-white;
+}
+.loading-bar {
+  @apply h-2 w-full rounded-full bg-orange-500 transition-all duration-500;
+}
+.loading-bar-gray {
+  @apply bg-slate relative h-2 w-full overflow-hidden rounded-full;
+}
+
+/* Nft Card */
+
+.nft-card-container {
+  @apply bg-dark flex h-auto max-h-180 w-full max-w-87 cursor-pointer flex-col items-center justify-center rounded-lg p-6 text-white;
+}
+.nft-card-info {
+  @apply mt-10 flex flex-col gap-3;
+}
+.nft-card-title {
+  @apply cursor-text text-lg font-medium;
+}
+.nft-card-description {
+  @apply line-clamp-3 cursor-text text-xs font-light;
+}
+.nft-card-container-price {
+  @apply mt-4 flex gap-3;
+}
+.nft-card-price {
+  @apply cursor-text text-xl font-semibold;
+}
+
+/*Description More*/
+
+.clamp-text {
+  @apply text-xs font-light transition-all duration-300;
+}
+.clamp-6 {
+  @apply line-clamp-6;
+}
+.clamp-3 {
+  @apply line-clamp-3;
+}
+.btn-show-more {
+  @apply text-orange mt-1 cursor-pointer text-xs font-bold hover:underline;
+}
+
+/*cart*/
+
+.btn-cart {
+  @apply bg-orange mt-8 h-16 w-full max-w-74 cursor-pointer rounded-lg p-2 text-base font-semibold text-white;
+}
+.sheet-content {
+  @apply bg-night flex max-h-screen w-auto max-w-[90vw] flex-col overflow-hidden sm:min-w-[80vw] md:w-[60vw] lg:min-w-[55vw] xl:min-w-[45vw];
+}
+.sheet-open {
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
+  transform: translateY(0);
+  opacity: 1;
+}
+.sheet-closed {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.sheet-title {
+  @apply mt-10 ml-7 flex w-auto gap-5 md:ml-17 md:gap-[20%];
+}
+.cart-title {
+  @apply pt-2 text-2xl font-medium text-white;
+}
+.cart-item-container {
+  @apply max-h-[60vh] flex-1 overflow-y-auto px-7;
+}
+.cart-empty {
+  @apply mt-10 text-center text-white;
+}
+
+/*cart components - Button*/
+
+.btn-back {
+  @apply bg-charcoal flex h-12 w-12 cursor-pointer items-center justify-center rounded-full;
+}
+.icon-back {
+  @apply text-orange h-6 w-6;
+}
+.btn-finalize {
+  @apply bg-orange h-15 w-full cursor-pointer rounded-lg text-base font-bold text-white;
+}
+.btn-quantity {
+  @apply bg-dark flex h-12 w-29 items-center justify-between gap-4 rounded-lg px-4;
+}
+.btn-reduce {
+  @apply cursor-pointer text-sm font-semibold text-white;
+}
+.btn-value {
+  @apply text-sm font-semibold text-white;
+}
+.btn-increase {
+  @apply cursor-pointer text-sm font-semibold text-white;
+}
+.btn-remove {
+  @apply bg-orange flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
+}
+.icon-remove {
+  @apply h-6 w-6 text-white;
+}
+
+/*cart components*/
+
+.cart-item {
+  @apply bg-charcoal mt-5 flex min-h-5 flex-col items-center gap-2 rounded-lg px-7 py-5 md:flex-row;
+}
+.cart-item-image {
+  @apply cursor-pointer rounded-lg object-contain;
+}
+.cart-item-info {
+  @apply flex flex-col gap-1 pl-7;
+}
+.cart-item-name {
+  @apply text-lg font-medium text-white;
+}
+.cart-item-description {
+  @apply line-clamp-2 text-xs font-light text-white sm:line-clamp-3;
+}
+.cart-item-coin {
+  @apply flex items-center gap-4;
+}
+.cart-item-coin-info {
+  @apply text-xl font-semibold text-white;
+}
+.cart-item-actions {
+  @apply flex items-center justify-between pt-2 pr-2;
+}
+.cart-summary-container {
+  @apply bg-night px-7 py-5;
+}
+.cart-summary-info {
+  @apply mb-6 flex items-center justify-between px-7 py-5;
+}
+.cart-summary-value {
+  @apply text-2xl font-bold text-white;
+}
+.cart-summary-coin {
+  @apply flex items-center gap-2;
+}
+.cart-summary-coin-info {
+  @apply text-2xl font-bold text-white;
+}
+
+/*Footer*/
+
+.footer-container {
+  @apply bg-night mt-10 flex h-19 w-full items-center justify-center;
+}
+.footer-text {
+  @apply text-sm text-white opacity-40;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  --background: #232323;
+
+  --foreground: oklch(0.145 0 0);
+
+  --card: oklch(1 0 0);
+
+  --card-foreground: oklch(0.145 0 0);
+
+  --popover: oklch(1 0 0);
+
+  --popover-foreground: oklch(0.145 0 0);
+
+  --primary: oklch(0.205 0 0);
+
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.97 0 0);
+
+  --secondary-foreground: oklch(0.205 0 0);
+
+  --muted: oklch(0.97 0 0);
+
+  --muted-foreground: oklch(0.556 0 0);
+
+  --accent: oklch(0.97 0 0);
+
+  --accent-foreground: oklch(0.205 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: oklch(0.922 0 0);
+
+  --input: oklch(0.922 0 0);
+
+  --ring: oklch(0.708 0 0);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+
+  --chart-2: oklch(0.6 0.118 184.704);
+
+  --chart-3: oklch(0.398 0.07 227.392);
+
+  --chart-4: oklch(0.828 0.189 84.429);
+
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: oklch(0.985 0 0);
+
+  --sidebar-foreground: oklch(0.145 0 0);
+
+  --sidebar-primary: oklch(0.205 0 0);
+
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+
+  --sidebar-accent: oklch(0.97 0 0);
+
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+
+  --sidebar-border: oklch(0.922 0 0);
+
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+
+  --foreground: oklch(0.985 0 0);
+
+  --card: oklch(0.205 0 0);
+
+  --card-foreground: oklch(0.985 0 0);
+
+  --popover: oklch(0.205 0 0);
+
+  --popover-foreground: oklch(0.985 0 0);
+
+  --primary: oklch(0.922 0 0);
+
+  --primary-foreground: oklch(0.205 0 0);
+
+  --secondary: oklch(0.269 0 0);
+
+  --secondary-foreground: oklch(0.985 0 0);
+
+  --muted: oklch(0.269 0 0);
+
+  --muted-foreground: oklch(0.708 0 0);
+
+  --accent: oklch(0.269 0 0);
+
+  --accent-foreground: oklch(0.985 0 0);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 10%);
+
+  --input: oklch(1 0 0 / 15%);
+
+  --ring: oklch(0.556 0 0);
+
+  --chart-1: oklch(0.488 0.243 264.376);
+
+  --chart-2: oklch(0.696 0.17 162.48);
+
+  --chart-3: oklch(0.769 0.188 70.08);
+
+  --chart-4: oklch(0.627 0.265 303.9);
+
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  --sidebar: oklch(0.205 0 0);
+
+  --sidebar-foreground: oklch(0.985 0 0);
+
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+
+  --sidebar-accent: oklch(0.269 0 0);
+
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+
+  --sidebar-border: oklch(1 0 0 / 10%);
+
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --radius-md: calc(var(--radius) - 2px);
+
+  --radius-lg: var(--radius);
+
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+
+  --color-input: var(--input);
+
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+
+  --color-chart-2: var(--chart-2);
+
+  --color-chart-3: var(--chart-3);
+
+  --color-chart-4: var(--chart-4);
+
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
