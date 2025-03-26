@@ -12,6 +12,5 @@ export type FetchResponse = {
 };
 
 export type NftCardProps = {
-    product: Product; 
+  product: Product;
 };
-

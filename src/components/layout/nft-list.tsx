@@ -1,11 +1,11 @@
 "use client";
 
 import { useProductsInfiniteQuery } from "@/hooks/use-products";
+import { Product } from "@/types/product";
+import { LOADING, ERROR, NO_PRODUCTS } from "@/constants/messages";
 import NftCard from "@/components/card/nft-card";
 import LoadMoreButton from "@/components/ui/button/load-more";
 import LoadFinished from "@/components/ui/button/load-finished";
-import { Product } from "@/types/product";
-import { LOADING, ERROR, NO_PRODUCTS } from "@/constants/messages";
 
 export default function NftList({ initialProducts }: { initialProducts: Product[] }) {
   const { data, isFetchingNextPage, fetchNextPage, hasNextPage, status } =
@@ -17,8 +17,8 @@ export default function NftList({ initialProducts }: { initialProducts: Product[
   if (status === "error") return <p className="text-red-500">{ERROR}</p>;
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="grid-list">
+    <div className="list-container">
+      <div className="list-grid">
         {products.length > 0 ? (
           products.map((product) => <NftCard key={product.id} product={product} />)
         ) : (

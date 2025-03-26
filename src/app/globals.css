@@ -18,11 +18,24 @@
   background: transparent !important;
 } /* Hiding the Sheet's default overlay is being applied */
 
+/*Header*/
+
 .header-container {
   @apply bg-night border-gray flex h-25 items-center justify-between border-b-2 px-11 py-7;
 }
+.header-container-cart {
+  @apply flex items-center gap-3 text-white;
+}
+.header-shopping-bag {
+  @apply text-orange cursor-pointer;
+}
 
-.grid-list {
+/*Nft List*/
+
+.list-container {
+  @apply flex flex-col items-center justify-center;
+}
+.list-grid {
   @apply bg-night mx-10 mt-35 grid grid-cols-1 items-center justify-center gap-6 sm:grid-cols-1 md:mx-34 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
 }
 
@@ -39,6 +52,9 @@
 }
 .loading-bar {
   @apply h-2 w-full rounded-full bg-orange-500 transition-all duration-500;
+}
+.loading-bar-gray {
+  @apply relative h-2 w-full overflow-hidden rounded-full bg-gray-700;
 }
 
 /* Nft Card */
@@ -85,6 +101,7 @@
 }
 
 /*cart*/
+
 .btn-cart {
   @apply bg-orange mt-8 h-16 w-full max-w-74 rounded-lg p-2 text-base font-semibold text-white;
 }
@@ -99,11 +116,21 @@
 }
 
 /*cart components*/
+
 .back-button {
   @apply flex h-12 w-12 items-center justify-center rounded-full bg-[#2B2B2B];
 }
 .back-icon {
   @apply text-orange h-6 w-6;
+}
+
+/*Footer*/
+
+.footer-container {
+  @apply bg-night mt-10 flex h-19 w-full items-center justify-center;
+}
+.footer-text {
+  @apply text-opacity-40 text-sm text-white;
 }
 
 :root {

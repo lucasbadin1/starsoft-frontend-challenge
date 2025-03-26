@@ -1,7 +1,7 @@
 import Image from "next/image";
+import { Product } from "@/types/product";
 import CartButton from "../cart/cart-button";
 import DescriptionShowMore from "./description-show-more";
-import { Product } from "@/types/product";
 
 type ProductProps = {
   product: Product;

@@ -1,4 +1,5 @@
 import { FetchResponse } from "@/types/product";
+import { ERROR_SEARCH } from "@/constants/messages";
 
 export const fetchProducts = async ({
   pageParam = 1,
@@ -9,7 +10,7 @@ export const fetchProducts = async ({
     `https://starsoft-challenge-7dfd4a56a575.herokuapp.com/v1/products?page=${pageParam}&limit=6`,
   );
 
-  if (!res.ok) throw new Error("Erro ao buscar os produtos");
+  if (!res.ok) throw new Error(ERROR_SEARCH);
 
   const data = await res.json();
 

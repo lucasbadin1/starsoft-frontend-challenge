@@ -12,12 +12,8 @@ export default function CartIcon() {
   );
 
   return (
-    <div className="flex items-center gap-3 text-white">
-      <ShoppingBag
-        size={24}
-        className="text-orange cursor-pointer"
-        onClick={() => dispatch(openCart())}
-      />
+    <div className="header-container-cart">
+      <ShoppingBag size={24} className="header-shopping-bag" onClick={() => dispatch(openCart())} />
       <p className="text-2xl">{totalItems}</p>
     </div>
   );
