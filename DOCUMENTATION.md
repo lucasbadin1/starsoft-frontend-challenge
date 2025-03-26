@@ -145,3 +145,30 @@ Ensured type safety and clearer code through consistent type definitions across 
 1-Dynamic Imports:
 - Applied dynamic imports to load heavy components only when necessary, improving performance, especially on initial page load.
 - Optimized the loading behavior of modals, large components, and other resource-heavy elements to enhance the user experience.
+
+🚀 Update - [26/03/2025]
+
+🔹 CartButton Refactor:
+-Organized and cleaned up the imports for better maintainability.
+-Standardized the naming conventions for variables and component files.
+-Refactored styles for improved consistency across the project.
+-Improved file structure for better readability and future scalability.
+-Ensured better separation of concerns by organizing styles into global configurations.
+
+✅ Implemented Features:
+1️⃣ Animations & Interactions Enhancement:
+
+-Framer Motion integrated for smooth, interactive animations across the app.
+-Added hover animations to buttons and cards, increasing interactivity and providing visual feedback for users.
+-Enhanced page transitions with Framer Motion, providing a seamless and engaging experience when navigating between pages.
+-Implemented smooth scaling effects and subtle shadow transitions for interactive elements such as buttons and cards.
+-Ensured animations are optimized to improve user experience, focusing on smoothness and engagement.
+
+2️⃣ Styling Improvements:
+
+-Adopted SASS and/or Styled Components to style the application with modular and reusable components.
+-Organized styles into global variables, mixins, and modular components for better maintainability and reusability.
+-Followed best practices for organizing and structuring CSS in components, ensuring that the app’s design remains consistent and scalable.
+-Applied consistent visual styles across all components, ensuring a cohesive look and feel throughout the application.
+-Improved styling performance and scalability by adhering to modern CSS architecture patterns.
+

@@ -21,17 +21,11 @@ export default function QuantityButton({ itemId, quantity }: QuantityButtonProps
 
   return (
     <button className="btn-quantity">
-      <p
-        className="btn-reduce"
-        onClick={handleDecrement}
-      >
+      <p className="btn-reduce" onClick={handleDecrement}>
         -
       </p>
       <p className="btn-value">{quantity}</p>
-      <p
-        className="btn-increase"
-        onClick={handleIncrement}
-      >
+      <p className="btn-increase" onClick={handleIncrement}>
         +
       </p>
     </button>

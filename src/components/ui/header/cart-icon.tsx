@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
@@ -12,9 +13,16 @@ export default function CartIcon() {
   );
 
   return (
-    <div className="header-container-cart">
-      <ShoppingBag size={24} className="header-shopping-bag" onClick={() => dispatch(openCart())} />
+    <motion.div
+      className="header-container-cart"
+      whileHover={{
+        scale: 1.2, // Crescimento suave
+        transition: { type: "spring", stiffness: 100, damping: 10 }, // Transição suave
+      }}
+      onClick={() => dispatch(openCart())}
+    >
+      <ShoppingBag size={24} className="header-shopping-bag" />
       <p className="text-2xl">{totalItems}</p>
-    </div>
+    </motion.div>
   );
 }

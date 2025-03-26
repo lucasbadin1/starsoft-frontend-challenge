@@ -1,16 +1,15 @@
 "use client";
 
-import { useDispatch, useSelector } from "react-redux";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import AddToCartButton from "./components/button/buy-button";
-import BackButton from "./components/button/back-button";
-import CartItem from "./components/cart-item";
+import { useDispatch, useSelector } from "react-redux"; 
+import { RootState } from "@/store/store"; 
+import { addToCart } from "@/store/features/cart-slice"; 
+import { openCart, closeCart } from "@/store/features/cart-state-slice"; 
+import { Product } from "@/types/product"; 
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"; 
+import AddToCartButton from "./components/button/buy-button"; 
+import BackButton from "./components/button/back-button"; 
+import CartItem from "./components/cart-item"; 
 import CartSummary from "./components/cart-summary";
-import { addToCart } from "@/store/features/cart-slice";
-import { openCart, closeCart } from "@/store/features/cart-state-slice";
-import { RootState } from "@/store/store";
-import { Product } from "@/types/product";
-
 
 export default function CartButton({ product }: { product: Product }) {
   const dispatch = useDispatch();
@@ -34,7 +33,10 @@ export default function CartButton({ product }: { product: Product }) {
         open={isCartOpen}
         onOpenChange={(open) => (open ? dispatch(openCart()) : dispatch(closeCart()))}
       >
-        <SheetContent side="right" className="sheet-content">
+        <SheetContent
+          side="right"
+          className={`sheet-content ${isCartOpen ? "sheet-open" : "sheet-closed"}`}
+        >
           <SheetHeader>
             <SheetTitle className="sheet-title">
               <BackButton onClick={() => dispatch(closeCart())} />

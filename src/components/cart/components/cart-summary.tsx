@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import FinalizeButton from "./button/finalize-button";
 import { CartSummaryProps } from "@/types/cart";
 import { clearCart } from "@/store/features/cart-slice";
+import FinalizeButton from "./button/finalize-button";
 
 export default function CartSummary({ totalPrice }: CartSummaryProps) {
   const dispatch = useDispatch();
