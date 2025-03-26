@@ -18,7 +18,7 @@ export default function AddToCartButton({ quantity, onClick }: CartActionButtonP
         },
       }}
     >
-      {quantity > 0 ? `COMPRAR (${quantity + 1})` : "COMPRAR"}
+      {quantity > 0 ? `COMPRAR (${quantity})` : "COMPRAR"}
     </motion.button>
   );
 }
