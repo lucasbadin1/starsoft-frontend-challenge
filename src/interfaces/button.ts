@@ -6,3 +6,8 @@ export interface LoadMoreButtonProps {
 export interface BackButtonProps {
   onClick: () => void;
 }
+
+export interface FinalizeButtonProps {
+  purchaseCompleted: boolean;
+  onClick: () => void;
+}

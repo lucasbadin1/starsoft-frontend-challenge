@@ -8,6 +8,7 @@
   --color-dark: #191A20;
   --color-night: #232323;
   --color-slate: #393939;
+  --color-charcoal: #2B2B2B;
 
   --font-heading: var(--font-poppins);
 
@@ -45,7 +46,7 @@
   @apply mt-10 flex items-center justify-center;
 }
 .card-container {
-  @apply flex min-h-[100px] min-w-[400px] flex-col space-y-2 p-4;
+  @apply flex min-h-25 min-w-100 flex-col space-y-2 p-4;
 }
 .btn-load {
   @apply bg-slate flex h-21.5 w-full items-center justify-center rounded-lg text-xl font-semibold text-white;
@@ -54,7 +55,7 @@
   @apply h-2 w-full rounded-full bg-orange-500 transition-all duration-500;
 }
 .loading-bar-gray {
-  @apply relative h-2 w-full overflow-hidden rounded-full bg-gray-700;
+  @apply bg-slate relative h-2 w-full overflow-hidden rounded-full;
 }
 
 /* Nft Card */
@@ -106,22 +107,91 @@
   @apply bg-orange mt-8 h-16 w-full max-w-74 rounded-lg p-2 text-base font-semibold text-white;
 }
 .sheet-content {
-  @apply bg-night z-[999] flex max-h-screen w-full max-w-[90vw] flex-col overflow-hidden sm:min-w-[80vw] md:w-[60vw] lg:min-w-[55vw] xl:min-w-[800px];
+  @apply bg-night flex max-h-screen w-auto max-w-[90vw] flex-col overflow-hidden sm:min-w-[80vw] md:w-[60vw] lg:min-w-[55vw] xl:min-w-[45vw];
 }
 .sheet-title {
-  @apply mt-[40px] ml-7 flex w-full gap-5 md:ml-[70px] md:gap-[20%];
+  @apply mt-10 ml-7 flex w-full gap-5 md:ml-17 md:gap-[20%];
 }
-.title-cart {
+.cart-title {
   @apply pt-2 text-2xl font-medium text-white;
+}
+.cart-item-container {
+  @apply max-h-[60vh] flex-1 overflow-y-auto px-7;
+}
+.cart-empty {
+  @apply mt-10 text-center text-white;
+}
+
+/*cart components - Button*/
+
+.btn-back {
+  @apply bg-charcoal flex h-12 w-12 items-center justify-center rounded-full;
+}
+.icon-back {
+  @apply text-orange h-6 w-6;
+}
+.btn-finalize {
+  @apply bg-orange h-15 w-full rounded-lg text-base font-bold text-white;
+}
+.btn-quantity {
+  @apply bg-dark flex h-12 w-29 items-center justify-between gap-4 rounded-lg px-4;
+}
+.btn-reduce {
+  @apply cursor-pointer text-sm font-semibold text-white;
+}
+.btn-value {
+  @apply text-sm font-semibold text-white;
+}
+.btn-increase {
+  @apply cursor-pointer text-sm font-semibold text-white;
+}
+.btn-remove {
+  @apply bg-orange flex h-10 w-10 items-center justify-center rounded-full;
+}
+.icon-remove {
+  @apply h-6 w-6 text-white;
 }
 
 /*cart components*/
 
-.back-button {
-  @apply flex h-12 w-12 items-center justify-center rounded-full bg-[#2B2B2B];
+.cart-item {
+  @apply bg-charcoal mt-5 flex min-h-5 flex-col items-center gap-2 rounded-lg px-7 py-5 md:flex-row;
 }
-.back-icon {
-  @apply text-orange h-6 w-6;
+.cart-item-image {
+  @apply rounded-lg object-contain;
+}
+.cart-item-info {
+  @apply flex flex-col gap-1 pl-7;
+}
+.cart-item-name {
+  @apply text-lg font-medium text-white;
+}
+.cart-item-description {
+  @apply line-clamp-2 text-xs font-light text-white sm:line-clamp-3;
+}
+.cart-item-coin {
+  @apply flex items-center gap-4;
+}
+.cart-item-coin-info {
+  @apply text-xl font-semibold text-white;
+}
+.cart-item-actions {
+  @apply flex items-center justify-between pt-2 pr-2;
+}
+.cart-summary-container {
+  @apply bg-night px-7 py-5;
+}
+.cart-summary-info {
+  @apply mb-6 flex items-center justify-between px-10 py-5;
+}
+.cart-summary-value {
+  @apply text-2xl font-bold text-white;
+}
+.cart-summary-coin {
+  @apply flex items-center gap-3;
+}
+.cart-summary-coin-info {
+  @apply text-2xl font-bold text-white;
 }
 
 /*Footer*/
@@ -130,7 +200,7 @@
   @apply bg-night mt-10 flex h-19 w-full items-center justify-center;
 }
 .footer-text {
-  @apply text-opacity-40 text-sm text-white;
+  @apply text-sm text-white opacity-40;
 }
 
 :root {

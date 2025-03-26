@@ -3,8 +3,8 @@ import { BackButtonProps } from "@/interfaces/button";
 
 export default function BackButton({ onClick }: BackButtonProps) {
   return (
-    <button className="back-button" onClick={onClick}>
-      <ArrowLeft className="back-icon" />
+    <button className="btn-back" onClick={onClick}>
+      <ArrowLeft className="icon-back" />
     </button>
   );
 }
