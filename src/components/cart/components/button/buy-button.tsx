@@ -8,6 +8,7 @@ export default function AddToCartButton({ quantity, onClick }: CartActionButtonP
     <motion.button
       onClick={onClick}
       className="btn-cart"
+      data-testid="add-to-cart-button"
       whileHover={{
         scale: 1.03, // Aumento suave no tamanho
         transition: {

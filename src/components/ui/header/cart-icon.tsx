@@ -14,6 +14,7 @@ export default function CartIcon() {
 
   return (
     <motion.div
+      data-testid="cart-icon"  // Adicionando data-testid
       className="header-container-cart"
       whileHover={{
         scale: 1.2, // Crescimento suave

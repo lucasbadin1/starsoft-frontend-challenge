@@ -128,6 +128,15 @@ A aplicação foi desenvolvida de acordo com as melhores práticas de **Clean Co
 - **Animações Interativas**: Integração com **Framer Motion** para transições e efeitos dinâmicos.
 - **Estilização Otimizada**: Uso de **SASS** e **Styled Components** para garantir modularidade e escalabilidade de estilo.
 
+#### 27/03/2025
+
+**Branch Correspondente**:
+- `test/jest-testing-components`
+
+- **Testes de Componentes**: Realizei testes nos componentes principais, como Buttons, Cart Render e Product Cards, buscando garantir a robustez e a confiabilidade desses elementos essenciais. Apesar de ser uma área nova para mim, aproveitei os conhecimentos adquiridos na pós-graduação e utilizei o suporte de IA (ChatGPT) para me aprofundar nos testes e implementações. Através dessa abordagem, fui capaz de investigar e aplicar melhores práticas para garantir que os componentes funcionem corretamente em diferentes cenários.
+
+- **Aprendizado Contínuo**: Com base no meu desenvolvimento e aprendizado na pós-graduação, estou aprimorando minha compreensão sobre testes unitários, integração e melhores práticas para a criação de aplicações escaláveis e de alta performance.
+
 ### Atualizações nas Branches: (26/03/2025)
 
 #### 1. Branch `main` - Deploy na Netlify

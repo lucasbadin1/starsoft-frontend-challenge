@@ -12,7 +12,7 @@ export default function BackButton({ onClick }: BackButtonProps) {
         transition: { type: "spring", stiffness: 100, damping: 10 }, // Transição suave
       }}
     >
-      <ArrowLeft className="icon-back" />
+      <ArrowLeft className="icon-back" data-testid="back-icon" />
     </motion.button>
   );
 }

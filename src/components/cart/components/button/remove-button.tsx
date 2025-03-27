@@ -23,7 +23,7 @@ export default function RemoveButton({ itemId }: RemoveButtonProps) {
         transition: { type: "spring", stiffness: 100, damping: 10 }, // Transição suave
       }}
     >
-      <Trash className="icon-remove" />
+      <Trash className="icon-remove" data-testid="remove-icon" />
     </motion.button>
   );
 }
