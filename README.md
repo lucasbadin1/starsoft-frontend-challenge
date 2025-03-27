@@ -1,8 +1,24 @@
+## Como Executar o Projeto em Docker 
+## Passo 1: Clonar o Repositório
+- Primeiramente, clone o repositório para o seu computador e navegue até a pasta do projeto.
+
+`git clone -b docker-setup https://github.com/lucasbadin1/starsoft-frontend-challenge.git`
+`cd starsoft-frontend-challenge`
+
+## Passo 2: Rodando o Docker Compose
+- O comando docker-compose up é crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
+
+## Passo 3: Acessando a Aplicação:
+A aplicação estará disponível no navegador localmente em **http://localhost:3000** após a execução do comando docker-compose up.
+
+## OBS: Como Parar o Docker:
+O comando `docker-compose down` é fornecido para garantir que você possa parar o ambiente com segurança quando terminar de trabalhar. Ele elimina os containers e redes associados à execução do projeto.
+
+
 ## Projeto em deploy com a Netlify:
 
 **Link para a aplicação em produção na Netlify**:  
   - Exemplo: [https://67e49abd70acfe448841766a--wondrous-griffin-8da7e9.netlify.app]
-
 
 
 # NFT Marketplace - Front-End Challenge
