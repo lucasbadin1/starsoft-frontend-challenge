@@ -1,4 +1,4 @@
-## Como Executar o Projeto em Docker 
+# Como Executar o Projeto em Docker 
 ## Passo 1: Clonar o Repositório
 - Primeiramente, clone o repositório para o seu computador e navegue até a pasta do projeto.
 
@@ -15,7 +15,7 @@ A aplicação estará disponível no navegador localmente em **http://localhost:
 O comando `docker-compose down` é fornecido para garantir que você possa parar o ambiente com segurança quando terminar de trabalhar. Ele elimina os containers e redes associados à execução do projeto.
 
 
-## Projeto em deploy com a Netlify:
+# Projeto em deploy com a Netlify:
 
 **Link para a aplicação em produção na Netlify**:  
   - Exemplo: [https://67e49abd70acfe448841766a--wondrous-griffin-8da7e9.netlify.app]
