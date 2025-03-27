@@ -1,19 +1,145 @@
 ## Como Executar o Projeto
 
 ### Passo 1: Clonar o Repositório
-   - Primeiramente, clone o repositório para o seu computador e navegue até a pasta do projeto.
+Primeiramente, clone o repositório para o seu computador e navegue até a pasta do projeto.
 
 - git clone -b docker-setup https://github.com/lucasbadin1/starsoft-frontend-challenge.git
+
 - cd starsoft-frontend-challenge
 
-### Passo 2:  Rodando o Docker Compose
-   - O comando `docker-compose up` é crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
-   
+### Passo 2: Rodando o Docker Compose
+  O comando docker-compose up é crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do
+  servidor Next.js.
+
 ### Passo 3: Acessando a Aplicação:
-   - A aplicação estará disponível no navegador localmente em `http://localhost:3000` após a execução do comando `docker-compose up`.
+  A aplicação estará disponível no navegador localmente em http://localhost:3000 após a execução do comando docker-compose up.
    
 ### OBS: Como Parar o Docker:
-   - O comando `docker-compose down` é fornecido para garantir que você possa parar o ambiente com segurança quando terminar de trabalhar. Ele elimina os containers e redes associados à execução do projeto.
+  O comando `docker-compose down` é fornecido para garantir que você possa parar o ambiente com segurança quando terminar de trabalhar. Ele elimina os containers e redes associados à execução do projeto.
+
+
+
+# NFT Marketplace - Front-End Challenge
+
+## Descrição
+
+Este projeto é um **marketplace de NFTs** (Non-Fungible Tokens) construído utilizando **Next.js**, **React**, **Redux**, **React Query** e **TypeScript**. O objetivo é proporcionar uma experiência de compra de NFTs fluída e responsiva, com um sistema de carrinho de compras, animações interativas e otimizações de performance.
+
+A aplicação foi desenvolvida de acordo com as melhores práticas de **Clean Code**, otimização de performance e **Responsividade**, buscando garantir uma experiência de usuário de alta qualidade em diferentes dispositivos e tamanhos de tela.
+
+## Tecnologias Utilizadas
+
+- **Next.js**: Framework React para renderização no lado do servidor (SSR), geração de sites estáticos (SSG), e otimização de performance.
+- **React Query**: Biblioteca para **fetching de dados** eficiente, com gerenciamento de estados de **loading**, **erro** e **sucesso**.
+- **Redux**: Gerenciamento global de estado, particularmente para o carrinho de compras.
+- **Framer Motion**: Biblioteca para animações e interações suaves e dinâmicas, melhorando a UX.
+- **TypeScript**: Tipagem estática para garantir maior **robustez** e **manutenibilidade** do código.
+- **Tailwind CSS**: Framework CSS utilitário para estilização rápida e consistente.
+- **SASS / Styled Components**: Para **estilização modular** e reutilizável, garantindo escalabilidade do projeto.
+- **Docker**: Para configuração do ambiente de desenvolvimento, tornando-o portável e fácil de configurar.
+
+## Funcionalidades Implementadas
+
+### 🚀 Funcionalidades Principais
+
+1. **Página Inicial (Homepage)**:
+   - **Desenvolvida com Next.js** e **React Query** para garantir um carregamento rápido e eficiente.
+   - **Renderização otimizada** utilizando **getStaticProps** e **getServerSideProps**.
+
+2. **Sistema de Carrinho de Compras**:
+   - Gerenciamento de itens no carrinho usando **Redux** com **ações escaláveis** (adicionar, remover, atualizar quantidade).
+   - Melhoria na **UI/UX** do carrinho, incluindo animações e transições suaves para interação com o usuário.
+
+3. **Responsividade Completa**:
+   - Layouts adaptáveis para diferentes tamanhos de tela, garantindo uma experiência consistente em dispositivos móveis, tablets e desktops.
+   - **Refinamento da responsividade** com o uso de **Tailwind CSS** e **flexbox** para ajustes dinâmicos.
+
+4. **Animações Interativas**:
+   - Integração com **Framer Motion** para **transições de páginas** e animações em **botões** e **cards**.
+   - **Efeitos de hover**, **escala suave** e **sombreamento dinâmico** para aumentar a interatividade.
+
+5. **Otimização de Performance**:
+   - **Infinite Scroll** e **carregamento de dados sob demanda** utilizando **React Query** e técnicas de **SSG/SSR**.
+   - **Otimização de imagens** usando o componente `next/image`, garantindo que as imagens de NFTs sejam carregadas de forma eficiente.
+   - **Importação dinâmica** para componentes pesados, garantindo um tempo de carregamento inicial mais rápido.
+
+6. **SEO e Acessibilidade**:
+   - Implementação de boas práticas de **SEO** utilizando **next/head**.
+   - **Acessibilidade** melhorada com uso de **atributos ARIA**, **HTML semântico** e suporte completo para leitores de tela.
+
+7. **Modularização de Componentes**:
+   - Estrutura de componentes **modulares** e reutilizáveis, como **NFTCard**, **CartButton**, **Header**, e **Footer**, melhorando a escalabilidade do código.
+   - **Refatoração contínua** de componentes, aplicando **princípios de Clean Code** e **boas práticas de arquitetura**.
+
+### 🚀 Atualizações Realizadas
+
+#### 20/03/2025 
+
+**Branch Correspondente**:  
+- `master` 
+
+- **Página Inicial**: Implementação da homepage utilizando **Next.js** e **React Query**.
+- **Otimização de Dados**: Utilização de **getStaticProps** e **getServerSideProps** para melhor performance.
+- **Gerenciamento de Estado**: Implementação de **useEffect** para persistir dados carregados.
+
+#### 22/03/2025
+
+**Branch Correspondente**:  
+- `feature/cart-enhancements` 
+
+- **Aprimoramento do Carrinho de Compras**: Refatoração da lógica para melhor escalabilidade.
+- **Responsividade**: Ajustes finos de layout para diferentes tamanhos de tela.
+- **Limpeza de Arquitetura**: Refatoração do código para modularidade e legibilidade.
+
+
+#### 23/03/2025
+
+**Branch Correspondente**:  
+- `feature/cart-state-optimization` 
+
+- **Otimização do Carrinho com Redux**: Melhoria na lógica de estado do carrinho.
+- **UI/UX Refinada**: Melhorias em comportamentos de overlay e UI responsiva.
+- **Código Organizado**: Melhoria no naming convention e estrutura de componentes.
+
+#### 24/03/2025
+
+**Branch Correspondente**:  
+- `refactor/organize-modularize-clean-code` 
+
+- **Otimização de Dados**: Melhorias no **infinite scroll** e **carregamento contínuo**.
+- **Otimização da Responsividade**: Ajustes dinâmicos nos itens do carrinho para telas pequenas.
+- **Redux Melhorado**: Melhor gestão de estados e re-renderizações otimizadas.
+
+#### 25/03/2025
+
+**Branch Correspondente**:  
+- `refactor/organize-modularize-clean-code` 
+
+- **Modularização da Lista de NFTs**: Refatoração para componentes reutilizáveis e organizados.
+- **Refatoração de Header**: Melhor separação de responsabilidades e aumento da reusabilidade.
+- **Clean Code**: Aplicação rigorosa dos princípios de **Clean Code** e **boas práticas de TypeScript**.
+- **Refatoração de CartButton**: Melhorias na estrutura de arquivos e na modularização.
+
+#### 26/03/2025
+
+**Branch Correspondente**:  
+- `feature/animations-interactions-styling` 
+
+- **Animações Interativas**: Integração com **Framer Motion** para transições e efeitos dinâmicos.
+- **Estilização Otimizada**: Uso de **SASS** e **Styled Components** para garantir modularidade e escalabilidade de estilo.
+
+### Atualizações nas Branches: (26/03/2025)
+
+#### 1. Branch `main` - Deploy na Netlify
+
+- **Deploy automático na Netlify**:
+  - Configuração do fluxo de deploy para atualizar automaticamente a aplicação sempre que houver modificações na branch `main`.
+
+  **Link para a aplicação em produção na Netlify**:  
+  - Exemplo: [https://67e49abd70acfe448841766a--wondrous-griffin-8da7e9.netlify.app]
+
+#### 2. Branch `docker-setup` - Configuração do ambiente de desenvolvimento utilizando Docker e Docker Compose 
+
 
 
 
