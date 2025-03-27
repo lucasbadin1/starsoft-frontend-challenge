@@ -3,12 +3,11 @@
 ### Passo 1: Clonar o Repositório
    - Primeiramente, clone o repositório para o seu computador e navegue até a pasta do projeto.
 
-- git clone https://github.com/lucasbadin1/starsoft-frontend-challenge.git
-- cd star-soft/starsoft-frontend-challenge
+- git clone -b docker-setup https://github.com/lucasbadin1/starsoft-frontend-challenge.git
+- cd starsoft-frontend-challenge
 
 ### Passo 2:  Rodando o Docker Compose
-   - O comando `docker-compose up --build` é crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
-   - O parâmetro `--build` garante que a imagem será recriada, se necessário, com base nas alterações feitas no código.
+   - O comando `docker-compose up` é crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
    
 ### Passo 3: Acessando a Aplicação:
    - A aplicação estará disponível no navegador localmente em `http://localhost:3000` após a execução do comando `docker-compose up`.
