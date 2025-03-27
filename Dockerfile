@@ -1,5 +1,5 @@
-# Etapa 1: Imagem base para o ambiente de build
-FROM node:18 AS build
+# Etapa 1: Imagem base para o ambiente de desenvolvimento
+FROM node:18 AS development
 
 # Diretório de trabalho dentro do container
 WORKDIR /app
@@ -7,28 +7,14 @@ WORKDIR /app
 # Copiar arquivos de dependências
 COPY package.json package-lock.json ./
 
-# Instalar dependências
+# Instalar dependências de desenvolvimento
 RUN npm install
 
 # Copiar o restante do código da aplicação
 COPY . .
 
-# Rodar o build do Next.js
-RUN npm run build
-
-# Etapa 2: Imagem para o ambiente de produção
-FROM node:18 AS production
-
-WORKDIR /app
-
-# Copiar dependências e o build gerado
-COPY --from=build /app/package.json /app/package-lock.json ./
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
-COPY --from=build /app/node_modules ./node_modules
-
-# Expor a porta em que a aplicação vai rodar
+# Expor a porta em que o Next.js vai rodar
 EXPOSE 3000
 
-# Rodar a aplicação no modo produção
-CMD ["npm", "start"]
+# Rodar a aplicação no modo de desenvolvimento
+CMD ["npm", "run", "dev"]
