@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { LoadMoreButtonProps } from "@/interfaces/button";
 
 export default function LoadMoreButton({ isLoading, onClick }: LoadMoreButtonProps) {
@@ -8,9 +9,23 @@ export default function LoadMoreButton({ isLoading, onClick }: LoadMoreButtonPro
           <div className="loading-bar" style={{ width: isLoading ? "100%" : "50%" }}></div>
         </div>
 
-        <button onClick={onClick} className="btn-load" disabled={isLoading}>
+        <motion.button
+          onClick={onClick}
+          className="btn-load"
+          disabled={isLoading}
+          whileHover={{
+            scale: 1.03, // Aumento suave no tamanho
+            transition: {
+              repeat: Infinity,
+              repeatType: "reverse",
+              duration: 0.6,
+              ease: "easeInOut",
+            },
+          }}
+          style={{cursor: "pointer"}}
+        >
           {isLoading ? "Carregando..." : "Carregar mais"}
-        </button>
+        </motion.button>
       </div>
     </div>
   );

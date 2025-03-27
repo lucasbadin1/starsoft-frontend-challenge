@@ -43,10 +43,10 @@
 /* Button load */
 
 .btn-container {
-  @apply mt-10 flex items-center justify-center;
+  @apply mt-10 px-20 flex items-center justify-center;
 }
 .card-container {
-  @apply flex min-h-25 min-w-100 flex-col space-y-2 p-4;
+  @apply flex min-h-25 min-w-100 flex-col space-y-2 p-10 sm:p-4;
 }
 .btn-load {
   @apply bg-slate flex h-21.5 w-full items-center justify-center rounded-lg text-xl font-semibold text-white;
