@@ -1,22 +1,33 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Product } from "@/types/product";
 
-type Product = {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
+export interface CartItem extends Product {
   quantity: number;
-};
-
-type CartState = {
-  items: Product[];
+}
+interface CartState {
+  items: CartItem[];
   totalPrice: number;
-};
+  totalQuantity: number; 
+}
 
 const initialState: CartState = {
   items: [],
   totalPrice: 0,
+  totalQuantity: 0,
+};
+
+const calculateCartTotals = (state: CartState) => {
+  const { total, qty } = state.items.reduce(
+    (acc, item) => {
+      acc.qty += item.quantity;
+      acc.total += item.price * item.quantity;
+      return acc;
+    },
+    { total: 0, qty: 0 }
+  );
+
+  state.totalQuantity = qty;
+  state.totalPrice = Number(total.toFixed(2));
 };
 
 const cartSlice = createSlice({
@@ -24,44 +35,43 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Product>) => {
-      const existingProduct = state.items.find(
-        (item) => item.id === action.payload.id
-      );
-      if (existingProduct) {
-        existingProduct.quantity += 1;
+      const existingItem = state.items.find((item) => item.id === action.payload.id);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
       }
-      state.totalPrice = state.items.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
+
+      calculateCartTotals(state);
     },
 
-    removeFromCart: (state, action: PayloadAction<string>) => {
+    removeFromCart: (state, action: PayloadAction<number>) => { // ID agora é number
       state.items = state.items.filter((item) => item.id !== action.payload);
-      state.totalPrice = state.items.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
+      calculateCartTotals(state);
     },
 
     updateQuantity: (
       state,
-      action: PayloadAction<{ id: string; quantity: number }>
+      action: PayloadAction<{ id: number; quantity: number }> 
     ) => {
-      const product = state.items.find((item) => item.id === action.payload.id);
-      if (product) {
-        product.quantity = action.payload.quantity;
-        state.totalPrice = state.items.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0
-        );
+      const { id, quantity } = action.payload;
+      const item = state.items.find((item) => item.id === id);
+
+      if (item) {
+        if (quantity <= 0) {
+          state.items = state.items.filter((i) => i.id !== id);
+        } else {
+          item.quantity = quantity;
+        }
       }
+      calculateCartTotals(state);
     },
+
     clearCart: (state) => {
       state.items = [];
       state.totalPrice = 0;
+      state.totalQuantity = 0;
     },
   },
 });

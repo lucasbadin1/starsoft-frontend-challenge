@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface CartUIState {
+  isOpen: boolean;
+}
+
+const initialState: CartUIState = {
   isOpen: false,
 };
 

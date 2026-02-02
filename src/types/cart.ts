@@ -1,3 +1,5 @@
+import { Product } from "./product";
+
 export type CartActionButtonProps = {
   quantity: number;
   onClick: () => void;
@@ -5,4 +7,8 @@ export type CartActionButtonProps = {
 
 export type CartSummaryProps = {
   totalPrice: number;
+};
+
+export type CartItemProps = {
+    product: Product & { quantity: number };
 };
