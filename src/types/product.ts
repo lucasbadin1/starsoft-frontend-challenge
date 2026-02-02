@@ -17,4 +17,5 @@ export interface Product {
 export interface FetchResponse {
   products: Product[];
   nextPage?: number;
+  total: number;
 }
