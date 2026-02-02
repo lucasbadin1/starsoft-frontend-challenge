@@ -16,8 +16,6 @@ export default function NftList() {
   } = useProductsInfiniteQuery();
 
   const products = data?.pages.flatMap((page) => page.products) ?? [];
-  
-
   const totalItems = data?.pages[0]?.total || 32;
 
   const currentCount = products.length;
@@ -29,7 +27,7 @@ export default function NftList() {
   return (
     <div className="list-container container mx-auto px-4 py-8">
 
-      <div className="list-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="list-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.length > 0 ? (
           products.map((product) => <NftCard key={product.id} product={product} />)
         ) : (
