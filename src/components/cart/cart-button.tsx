@@ -1,19 +1,19 @@
 "use client";
 
-import { useDispatch, useSelector } from "react-redux"; 
-import { RootState } from "@/store/store"; 
-import { addToCart } from "@/store/features/cart-slice"; 
-import { openCart, closeCart } from "@/store/features/cart-state-slice"; 
-import { Product } from "@/types/product"; 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"; 
-import AddToCartButton from "./components/button/buy-button"; 
-import BackButton from "./components/button/back-button"; 
-import CartItem from "./components/cart-item"; 
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { addToCart } from "@/store/features/cart-slice";
+import { openCart, closeCart } from "@/store/features/cart-state-slice";
+import { Product } from "@/types/product";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import AddToCartButton from "./components/button/buy-button";
+import BackButton from "./components/button/back-button";
+import CartItem from "./components/cart-item";
 import CartSummary from "./components/cart-summary";
 
 export default function CartButton({ product }: { product: Product }) {
   const dispatch = useDispatch();
-  
+
   const cart = useSelector((state: RootState) => state.cart.items);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const isCartOpen = useSelector((state: RootState) => state.cartUI.isOpen);
