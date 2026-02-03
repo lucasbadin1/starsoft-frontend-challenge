@@ -23,7 +23,7 @@ export default function CartSummary({ totalPrice }: CartSummaryProps) {
       <div className="cart-summary-info">
         <p className="cart-summary-value">TOTAL</p>
         <div className="cart-summary-coin">
-          <Image src="/Etherium.png" width={30} height={30} alt="Etherium" />
+          <Image src="/Etherium.png" width={23} height={23} alt="Etherium" className="w-[20px] h-[20px] sm:w-[23px] sm:h-[23px]"/>
           <p className="cart-summary-coin-info">{totalPrice} ETH</p>
         </div>
       </div>

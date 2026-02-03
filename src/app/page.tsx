@@ -19,7 +19,7 @@ export default async function Home() {
   });
 
   return (
-    <div className="relative">
+    <div className="relative pt-24 md:pt-36">
       <Header />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <NftList />

@@ -30,7 +30,7 @@ export default function CartItem({ item }: CartItemProps) {
         <h2 className="cart-item-name">{item.name}</h2>
         <h3 className="cart-item-description">{item.description}</h3>
         <div className="cart-item-coin">
-          <Image src="/Etherium.png" width={30} height={30} alt="Etherium" />
+          <Image src="/Etherium.png" width={23} height={23} alt="Etherium" className="w-[20px] h-[20px] sm:w-[23px] sm:h-[23px]"/>
           <p className="cart-item-coin-info">{item.price * item.quantity} ETH</p>
         </div>
         <div className="cart-item-actions">
