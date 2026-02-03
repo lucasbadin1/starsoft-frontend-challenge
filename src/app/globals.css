@@ -100,7 +100,21 @@
   @apply bg-orange mt-8 h-16 w-full max-w-74 cursor-pointer rounded-lg p-2 text-base font-semibold text-white;
 }
 .sheet-content {
-  @apply bg-night flex max-h-screen w-[80vw] flex-col overflow-hidden sm:min-w-[80vw] md:w-[60vw] lg:min-w-[55vw] xl:min-w-[45vw];
+  @apply 
+    /* 1. POSICIONAMENTO: Travado na tela (ignora scroll da página) */
+    fixed inset-y-0 right-0 z-[60] /* z-60 para garantir que fique ACIMA do Header (z-50) */
+    
+    /* 2. ALTURA MÁGICA: 100dvh respeita a barra de endereços do celular */
+    h-[100dvh] 
+    
+    /* 3. VISUAL */
+    bg-night/95 backdrop-blur-md border-l border-gray
+    flex flex-col overflow-hidden shadow-2xl transition-all
+    
+    /* 4. LARGURA (Mantendo seus breakpoints) */
+    w-[85vw] 
+    sm:w-[70vw] 
+    md:w-[50vw] lg:w-[40vw] xl:w-[30vw];
 }
 .sheet-open {
   transition:
