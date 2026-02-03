@@ -12,8 +12,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  userScalable: false, 
-  themeColor: "bg-night", // Pinta a barra do navegador com a cor do seu fundo (bg-night)
+  userScalable: false,
+  themeColor: "bg-night",
 };
 
 export const metadata: Metadata = {
