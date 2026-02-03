@@ -19,16 +19,16 @@ export const fetchProducts = async ({
   const url = new URL(baseUrl);
 
   url.searchParams.set("page", pageParam.toString());
-  url.searchParams.set("rows", "8"); 
+  url.searchParams.set("rows", "8");
   url.searchParams.set("sortBy", "id");
   url.searchParams.set("orderBy", "ASC");
 
   try {
     const res = await fetch(url.toString());
     if (!res.ok) {
-        const errorBody = await res.text(); 
-        console.error("ERRO HTTP:", res.status, errorBody);
-        throw new Error(`API Error: ${res.status}`);
+      const errorBody = await res.text();
+      console.error("ERRO HTTP:", res.status, errorBody);
+      throw new Error(`API Error: ${res.status}`);
     }
 
     const data = await res.json();
@@ -45,7 +45,6 @@ export const fetchProducts = async ({
       nextPage: hasNextPage ? pageParam + 1 : undefined,
       total: totalItems,
     };
-
   } catch (error) {
     console.error("Erro na requisição:", error);
     throw error;

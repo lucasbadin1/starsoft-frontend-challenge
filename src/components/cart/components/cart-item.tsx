@@ -1,9 +1,9 @@
 // Bibliotecas Externas
-import { motion } from "framer-motion"; 
-import Image from "next/image"; 
-import { Product } from "@/types/product"; 
-import QuantityButton from "./button/quantity-button"; 
-import RemoveButton from "./button/remove-button"; 
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Product } from "@/types/product";
+import QuantityButton from "./button/quantity-button";
+import RemoveButton from "./button/remove-button";
 
 type CartItemProps = {
   item: Product & { quantity: number };
@@ -30,7 +30,13 @@ export default function CartItem({ item }: CartItemProps) {
         <h2 className="cart-item-name">{item.name}</h2>
         <h3 className="cart-item-description">{item.description}</h3>
         <div className="cart-item-coin">
-          <Image src="/Etherium.png" width={23} height={23} alt="Etherium" className="w-[20px] h-[20px] sm:w-[23px] sm:h-[23px]"/>
+          <Image
+            src="/Etherium.png"
+            width={23}
+            height={23}
+            alt="Etherium"
+            className="h-[20px] w-[20px] sm:h-[23px] sm:w-[23px]"
+          />
           <p className="cart-item-coin-info">{item.price * item.quantity} ETH</p>
         </div>
         <div className="cart-item-actions">

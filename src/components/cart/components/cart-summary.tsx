@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { RootState } from "@/store/store"; 
+import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { CartSummaryProps } from "@/types/cart";
 import { clearCart } from "@/store/features/cart-slice";
@@ -23,7 +23,13 @@ export default function CartSummary({ totalPrice }: CartSummaryProps) {
       <div className="cart-summary-info">
         <p className="cart-summary-value">TOTAL</p>
         <div className="cart-summary-coin">
-          <Image src="/Etherium.png" width={23} height={23} alt="Etherium" className="w-[20px] h-[20px] sm:w-[23px] sm:h-[23px]"/>
+          <Image
+            src="/Etherium.png"
+            width={23}
+            height={23}
+            alt="Etherium"
+            className="h-[20px] w-[20px] sm:h-[23px] sm:w-[23px]"
+          />
           <p className="cart-summary-coin-info">{totalPrice} ETH</p>
         </div>
       </div>

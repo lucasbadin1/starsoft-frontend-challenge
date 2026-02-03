@@ -15,7 +15,7 @@ export default async function Home() {
     queryFn: ({ pageParam }) => fetchProducts({ pageParam: pageParam as number }),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => lastPage.nextPage,
-    pages: 1, 
+    pages: 1,
   });
 
   return (
