@@ -7,13 +7,7 @@ import LoadMoreButton from "@/components/ui/button/load-more";
 import LoadFinished from "@/components/ui/button/load-finished";
 
 export default function NftList() {
-  const { 
-    data, 
-    isFetchingNextPage, 
-    fetchNextPage, 
-    status,
-    isError
-  } = useProductsInfiniteQuery();
+  const { data, isFetchingNextPage, fetchNextPage, status, isError } = useProductsInfiniteQuery();
 
   const products = data?.pages.flatMap((page) => page.products) ?? [];
   const totalItems = data?.pages[0]?.total || 32;
@@ -21,17 +15,16 @@ export default function NftList() {
   const currentCount = products.length;
   const hasMoreToLoad = currentCount < totalItems;
 
-  if (status === "pending" && !data) return <p className="text-center py-10">{LOADING}</p>;
-  if (isError) return <p className="text-center text-red-500 py-10">{ERROR}</p>;
+  if (status === "pending" && !data) return <p className="py-10 text-center">{LOADING}</p>;
+  if (isError) return <p className="py-10 text-center text-red-500">{ERROR}</p>;
 
   return (
     <div className="list-container">
-
       <div className="list-grid">
         {products.length > 0 ? (
           products.map((product) => <NftCard key={product.id} product={product} />)
         ) : (
-          <p className="mt-4 text-center w-full col-span-full">{NO_PRODUCTS}</p>
+          <p className="col-span-full mt-4 w-full text-center">{NO_PRODUCTS}</p>
         )}
       </div>
 

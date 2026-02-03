@@ -22,8 +22,7 @@
 /*Header*/
 
 .header-container {
-  @apply bg-night/90 border-gray fixed top-0 left-0 right-0 z-50
-    w-full flex h-20 items-center justify-between border-b-2 px-5 py-4 backdrop-blur-md transition-all md:h-auto md:px-11 md:py-7;
+  @apply bg-night/90 border-gray fixed top-0 right-0 left-0 z-50 flex h-20 w-full items-center justify-between border-b-2 px-5 py-4 backdrop-blur-md transition-all md:h-auto md:px-11 md:py-7;
 }
 .header-container-cart {
   @apply flex items-center gap-3 text-white;
@@ -35,7 +34,7 @@
 /*Nft List*/
 
 .list-container {
-  @apply flex flex-col items-center justify-center;
+  @apply mt-20 flex flex-col items-center justify-center;
 }
 .list-grid {
   @apply bg-night mx-15 mt-20 grid grid-cols-1 items-center justify-center gap-6 sm:grid-cols-1 md:mx-34 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
