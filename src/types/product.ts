@@ -13,6 +13,7 @@ export interface Product {
   description: string;
   image: string;
   price: number; 
+  quantity: number;
 }
 export interface FetchResponse {
   products: Product[];
