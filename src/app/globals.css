@@ -22,7 +22,7 @@
 /*Header*/
 
 .header-container {
-  @apply bg-night/90 border-gray sticky top-0 z-50 flex h-20 items-center justify-between border-b-2 px-25 py-4 backdrop-blur-md transition-all md:h-auto md:px-11 md:py-7;
+  @apply bg-night/90 border-gray sticky top-0 z-50 flex h-20 items-center justify-between border-b-2 px-5 py-14 backdrop-blur-md transition-all md:h-auto md:px-11 md:py-7;
 }
 .header-container-cart {
   @apply flex items-center gap-3 text-white;
