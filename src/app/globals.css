@@ -120,7 +120,7 @@
   @apply pt-2 text-lg font-medium text-white sm:text-2xl;
 }
 .cart-item-container {
-  @apply max-h-[60vh] flex-1 overflow-y-auto sm:px-7 px-15;
+  @apply max-h-[60vh] flex-1 overflow-y-auto px-10 sm:px-7;
 }
 .cart-empty {
   @apply mt-10 text-center text-white;
@@ -138,7 +138,7 @@
   @apply bg-orange h-10 w-full cursor-pointer rounded-lg text-sm font-bold text-white sm:h-15 sm:text-base;
 }
 .btn-quantity {
-  @apply bg-dark flex h-8 w-19 items-center justify-between gap-3 rounded-lg px-4 sm:h-12 sm:w-29;
+  @apply bg-dark flex h-8 w-15 items-center justify-between gap-2 rounded-lg px-2 sm:h-12 sm:w-29 sm:gap-3 sm:px-4;
 }
 .btn-reduce {
   @apply cursor-pointer text-xs font-semibold text-white sm:text-sm;
@@ -159,7 +159,7 @@
 /*cart components*/
 
 .cart-item {
-  @apply bg-charcoal mt-5 flex min-h-5 flex-col items-center gap-3 rounded-lg px-10 py-5 md:flex-row;
+  @apply bg-charcoal mt-5 flex min-h-5 flex-col items-center gap-3 rounded-lg px-7 py-5 md:flex-row;
 }
 .cart-item-image {
   @apply cursor-pointer rounded-lg object-contain;
@@ -180,7 +180,7 @@
   @apply text-base font-semibold text-white sm:text-xl;
 }
 .cart-item-actions {
-  @apply flex items-center justify-between pt-2 pr-2;
+  @apply flex items-center justify-between pt-2 pr-6 sm:pr-4;
 }
 .cart-summary-container {
   @apply bg-night px-7 py-5;
