@@ -25,9 +25,9 @@ export default function NftList() {
   if (isError) return <p className="text-center text-red-500 py-10">{ERROR}</p>;
 
   return (
-    <div className="list-container container mx-auto px-4 py-8">
+    <div className="list-container">
 
-      <div className="list-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="list-grid">
         {products.length > 0 ? (
           products.map((product) => <NftCard key={product.id} product={product} />)
         ) : (
