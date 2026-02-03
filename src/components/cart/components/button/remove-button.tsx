@@ -19,8 +19,8 @@ export default function RemoveButton({ itemId }: RemoveButtonProps) {
       className="btn-remove"
       onClick={handleRemove}
       whileHover={{
-        scale: 1.15, // Crescimento suave
-        transition: { type: "spring", stiffness: 100, damping: 10 }, // Transição suave
+        scale: 1.15, 
+        transition: { type: "spring", stiffness: 100, damping: 10 }, 
       }}
     >
       <Trash className="icon-remove" />

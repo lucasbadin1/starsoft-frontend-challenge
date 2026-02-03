@@ -8,8 +8,8 @@ export default function BackButton({ onClick }: BackButtonProps) {
       className="btn-back"
       onClick={onClick}
       whileHover={{
-        scale: 1.15, // Crescimento suave
-        transition: { type: "spring", stiffness: 100, damping: 10 }, // Transição suave
+        scale: 1.15, 
+        transition: { type: "spring", stiffness: 100, damping: 10 }, 
       }}
     >
       <ArrowLeft className="icon-back" />

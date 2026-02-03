@@ -13,17 +13,17 @@ export default function NftCard({ product }: ProductProps) {
     <motion.div
       className="nft-card-container"
       whileHover={{
-        scale: 1.05, // Suavemente aumenta o tamanho do card
+        scale: 1.05, 
         transition: { type: "spring", stiffness: 100, damping: 10 },
       }}
     >
       <motion.div
         whileHover={{
-          scale: 1.05, // Leve aumento no card
-          transition: { type: "spring", stiffness: 150, damping: 20 }, // Transição suave
+          scale: 1.05, 
+          transition: { type: "spring", stiffness: 150, damping: 20 }, 
         }}
         whileTap={{
-          scale: 0.98, // Leve diminuição do tamanho no clique
+          scale: 0.98, 
           transition: { type: "spring", stiffness: 150, damping: 20 },
         }}
       >

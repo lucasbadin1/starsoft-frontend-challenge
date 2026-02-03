@@ -9,7 +9,7 @@ export default function AddToCartButton({ quantity, onClick }: CartActionButtonP
       onClick={onClick}
       className="btn-cart"
       whileHover={{
-        scale: 1.03, // Aumento suave no tamanho
+        scale: 1.03, 
         transition: {
           repeat: Infinity,
           repeatType: "reverse",

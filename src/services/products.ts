@@ -2,7 +2,7 @@ import { Product, FetchResponse, ProductAPI } from "@/types/product";
 
 const mapProductApiToModel = (apiData: ProductAPI): Product => {
   return {
-    id: apiData.id,
+    id: apiData.id.toString(),
     name: apiData.name,
     description: apiData.description,
     image: apiData.image,
@@ -24,7 +24,7 @@ export const fetchProducts = async ({
   url.searchParams.set("orderBy", "ASC");
 
   try {
-    const res = await fetch(url.toString(), { cache: "no-store" });
+    const res = await fetch(url.toString());
     if (!res.ok) {
         const errorBody = await res.text(); 
         console.error("ERRO HTTP:", res.status, errorBody);

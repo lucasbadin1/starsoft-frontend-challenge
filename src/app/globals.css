@@ -3,12 +3,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-orange: #FF8310;
-  --color-gray: #CCCCCC;
-  --color-dark: #191A20;
+  --color-orange: #ff8310;
+  --color-gray: #cccccc;
+  --color-dark: #191a20;
   --color-night: #232323;
   --color-slate: #393939;
-  --color-charcoal: #2B2B2B;
+  --color-charcoal: #2b2b2b;
 
   --font-heading: var(--font-poppins);
 
@@ -22,7 +22,7 @@
 /*Header*/
 
 .header-container {
-  @apply sticky top-0 z-50 bg-night/90 backdrop-blur-md border-gray flex h-25 items-center justify-between border-b-2 px-11 py-7 transition-all;
+  @apply bg-night/90 border-gray sticky top-0 z-50 flex h-25 items-center justify-between border-b-2 px-11 py-7 backdrop-blur-md transition-all;
 }
 .header-container-cart {
   @apply flex items-center gap-3 text-white;
@@ -43,7 +43,7 @@
 /* Button load */
 
 .btn-container {
-  @apply mt-10 px-20 flex items-center justify-center;
+  @apply mt-10 flex items-center justify-center px-20;
 }
 .card-container {
   @apply flex min-h-25 min-w-100 flex-col space-y-2 p-10 sm:p-4;
@@ -114,7 +114,7 @@
   opacity: 0;
 }
 .sheet-title {
-  @apply mt-10 ml-7 flex items-center w-auto gap-5 md:ml-17 md:gap-[20%];
+  @apply mt-10 ml-7 flex w-auto items-center gap-5 md:ml-17 md:gap-[20%];
 }
 .cart-title {
   @apply pt-2 text-2xl font-medium text-white;

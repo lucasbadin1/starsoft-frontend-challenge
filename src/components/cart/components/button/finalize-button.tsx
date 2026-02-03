@@ -6,14 +6,14 @@ export default function FinalizeButton({
   onClick,
   hasItems,
 }: FinalizeButtonProps) {
-  const isDisabled = !hasItems; // Desabilita o botão se o carrinho estiver vazio
+  const isDisabled = !hasItems; 
 
   return (
     <motion.button
       className="btn-finalize"
-      onClick={isDisabled ? () => {} : onClick} // Não executa onClick se estiver desabilitado
+      onClick={isDisabled ? () => {} : onClick} 
       whileHover={{
-        scale: 1.03, // Aumento suave no tamanho
+        scale: 1.03, 
         transition: {
           repeat: Infinity,
           repeatType: "reverse",

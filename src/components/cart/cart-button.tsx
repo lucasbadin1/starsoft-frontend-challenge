@@ -13,15 +13,16 @@ import CartSummary from "./components/cart-summary";
 
 export default function CartButton({ product }: { product: Product }) {
   const dispatch = useDispatch();
+  
   const cart = useSelector((state: RootState) => state.cart.items);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const isCartOpen = useSelector((state: RootState) => state.cartUI.isOpen);
 
-  const cartItem = cart.find((item) => item.id === product.id);
-  const quantity = cartItem ? cartItem.quantity : 0;
+  const existingItem = cart.find((item) => item.id === product.id);
+  const quantity = existingItem ? existingItem.quantity : 0;
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ ...product, quantity: 1 }));
+    dispatch(addToCart(product));
     dispatch(openCart());
   };
 

@@ -1,6 +1,6 @@
 // O que vem EXATAMENTE da API
 export interface ProductAPI {
-  id: number;
+  id: number | string;
   name: string;
   description: string;
   image: string;
@@ -8,12 +8,11 @@ export interface ProductAPI {
   createdAt: string;
 }
 export interface Product {
-  id: number; 
+  id: string;
   name: string;
   description: string;
   image: string;
   price: number; 
-  quantity: number;
 }
 export interface FetchResponse {
   products: Product[];
