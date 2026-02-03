@@ -1,9 +1,7 @@
-// Bibliotecas Externas
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Product } from "@/types/product";
-import QuantityButton from "./button/quantity-button";
-import RemoveButton from "./button/remove-button";
+import QuantityButton from "@/components/cart/components/button/quantity-button";
+import RemoveButton from "@/components/cart/components/button/remove-button";
 
 type CartItemProps = {
   item: Product & { quantity: number };
@@ -11,13 +9,7 @@ type CartItemProps = {
 
 export default function CartItem({ item }: CartItemProps) {
   return (
-    <motion.div
-      className="cart-item"
-      whileHover={{
-        scale: 1.01, // Suavemente aumenta o tamanho do card
-        transition: { type: "spring", stiffness: 100, damping: 10 },
-      }}
-    >
+    <div className="cart-item">
       <Image
         src={item.image}
         width={170}
@@ -45,6 +37,6 @@ export default function CartItem({ item }: CartItemProps) {
           <RemoveButton itemId={item.id} />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

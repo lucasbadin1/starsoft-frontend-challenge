@@ -6,10 +6,10 @@ import { addToCart } from "@/store/features/cart-slice";
 import { openCart, closeCart } from "@/store/features/cart-state-slice";
 import { Product } from "@/types/product";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import AddToCartButton from "./components/button/buy-button";
-import BackButton from "./components/button/back-button";
-import CartItem from "./components/cart-item";
-import CartSummary from "./components/cart-summary";
+import AddToCartButton from "@/components/cart/components/button/buy-button";
+import BackButton from "@/components/cart/components/button/back-button";
+import CartItem from "@/components/cart/components/cart-item";
+import CartSummary from "@/components/cart/components/cart-summary";
 
 export default function CartButton({ product }: { product: Product }) {
   const dispatch = useDispatch();

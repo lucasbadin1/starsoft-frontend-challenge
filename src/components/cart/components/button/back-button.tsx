@@ -8,7 +8,7 @@ export default function BackButton({ onClick }: BackButtonProps) {
       className="btn-back"
       onClick={onClick}
       whileHover={{
-        scale: 1.15, 
+        scale: 1.05, 
         transition: { type: "spring", stiffness: 100, damping: 10 }, 
       }}
     >

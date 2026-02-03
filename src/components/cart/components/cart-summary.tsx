@@ -4,7 +4,7 @@ import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { CartSummaryProps } from "@/types/cart";
 import { clearCart } from "@/store/features/cart-slice";
-import FinalizeButton from "./button/finalize-button";
+import FinalizeButton from "@/components/cart/components/button/finalize-button";
 
 export default function CartSummary({ totalPrice }: CartSummaryProps) {
   const dispatch = useDispatch();

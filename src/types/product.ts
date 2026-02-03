@@ -1,4 +1,3 @@
-// O que vem EXATAMENTE da API
 export interface ProductAPI {
   id: number | string;
   name: string;
