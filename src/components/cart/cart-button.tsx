@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { addToCart } from "@/store/features/cart-slice";
@@ -18,8 +19,18 @@ export default function CartButton({ product }: { product: Product }) {
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const isCartOpen = useSelector((state: RootState) => state.cartUI.isOpen);
 
+  // Hidratação Segura
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const existingItem = cart.find((item) => item.id === product.id);
-  const quantity = existingItem ? existingItem.quantity : 0;
+  const realQuantity = existingItem ? existingItem.quantity : 0;
+
+  // Server/First Render
+  const displayQuantity = isMounted ? realQuantity : 0;
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
@@ -28,7 +39,7 @@ export default function CartButton({ product }: { product: Product }) {
 
   return (
     <>
-      <AddToCartButton quantity={quantity} onClick={handleAddToCart} />
+      <AddToCartButton quantity={displayQuantity} onClick={handleAddToCart} />
 
       <Sheet
         open={isCartOpen}

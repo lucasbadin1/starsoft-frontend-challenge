@@ -6,7 +6,11 @@
 `cd starsoft-frontend-challenge`
 
 ## Passo 2: Rodando o Docker Compose
-- O comando docker-compose up é crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
+- O comando docker para iniciar a aplicação é:
+
+`docker-compose up` 
+
+- Crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
 
 ## Passo 3: Acessando a Aplicação:
 A aplicação estará disponível no navegador localmente em **http://localhost:3000** após a execução do comando docker-compose up.
@@ -15,10 +19,10 @@ A aplicação estará disponível no navegador localmente em **http://localhost:
 O comando `docker-compose down` é fornecido para garantir que você possa parar o ambiente com segurança quando terminar de trabalhar. Ele elimina os containers e redes associados à execução do projeto.
 
 
-# Projeto em deploy com a Netlify:
+# Projeto em deploy com a Vercel:
 
 **Link para a aplicação em produção na Netlify**:  
-  - Exemplo: [https://67e49abd70acfe448841766a--wondrous-griffin-8da7e9.netlify.app]
+  - [https://starsoft-frontend-deploy.vercel.app/]
 
 
 # NFT Marketplace - Front-End Challenge
@@ -29,6 +33,45 @@ Este projeto é um **marketplace de NFTs** (Non-Fungible Tokens) construído uti
 
 A aplicação foi desenvolvida de acordo com as melhores práticas de **Clean Code**, otimização de performance e **Responsividade**, buscando garantir uma experiência de usuário de alta qualidade em diferentes dispositivos e tamanhos de tela.
 
+# Decisões Arquiteturais & Justificativas Técnicas
+
+Nesta etapa final de refinamento, decisões estratégicas foram tomadas visando modernizar a stack e alinhá-la aos padrões atuais da indústria para aplicações **Next.js**.
+
+
+## A Escolha: Tailwind CSS vs. SASS
+
+Embora o SASS ofereça excelente modularidade, optou-se estrategicamente pelo **Tailwind CSS** neste projeto por três motivos técnicos que impactam diretamente os critérios de avaliação:
+
+1.  **Performance (Bundle Size):** O Tailwind gera CSS atômico. Ao contrário do SASS, que pode crescer linearmente com o projeto, o bundle do Tailwind tende a estagnar, garantindo carregamentos mais rápidos (LCP/FCP), essenciais para e-commerce.
+2.  **Server Components (RSC):** Com a evolução do Next.js 14/15, bibliotecas de estilo "Runtime" ou pré-processadores pesados perdem espaço para utility-classes que não dependem de JavaScript para renderizar estilos, eliminando o *Flash of Unstyled Content* (FOUC).
+3.  **Manutenibilidade & Padrão de Design:** O uso de tokens utilitários garante consistência visual ("Fidelidade ao Design") sem a necessidade de criar e manter centenas de nomes de classes arbitrários (`.wrapper-left-container-blue`), seguindo princípios de **Atomic CSS**.
+
+> **Nota:** Possuo competência plena em SASS/SCSS e Styled Components, mas para a arquitetura deste projeto específico, o Tailwind se provou a solução tecnicamente superior.
+
+
+## Gerenciamento de Estado & Persistência
+
+Para atender ao requisito de "Gerenciamento eficiente", evitou-se o uso de bibliotecas pesadas como `redux-persist` (que frequentemente causam problemas de hidratação no Next.js).
+
+* **Solução Criada:** Implementei um **Middleware Redux Customizado**.
+* **Como funciona:** Ele intercepta apenas as ações do carrinho e salva no `localStorage` de forma assíncrona.
+* **Hidratação Segura:** Foi implementado o padrão de `Mounted State` nos componentes de UI para evitar o erro de *Hydration Mismatch* entre Servidor (SSR) e Cliente, garantindo que o usuário não perca seus itens ao atualizar a página (F5).
+
+---
+
+## Estratégia de Testes (QA)
+
+A suíte de testes foi desenhada focando na **Pirâmide de Testes**, priorizando a lógica crítica de negócio sobre testes de implementação visual frágeis.
+
+1.  **Lógica de Negócio (100% Cobertura):**
+    * `cart-slice.ts`: Testes exaustivos garantindo que cálculos de total, adição e remoção de itens sejam matematicamente precisos.
+    * `products.ts (Service)`: Mocks de API para garantir tratamento de erros (ex: Error 500) e adaptação de dados.
+2.  **Integração (Componentes Críticos):**
+    * `CartButton`: Testes de integração validando se a interação do usuário dispara as ações corretas no Redux e se a UI responde (ex: mostrar contador vs. mostrar "Carrinho Vazio").
+3.  **Unitários (UI):**
+    * `QuantityButton`: Validação de limites (não permitir quantidade < 1).
+
+
 ## Tecnologias Utilizadas
 
 - **Next.js**: Framework React para renderização no lado do servidor (SSR), geração de sites estáticos (SSG), e otimização de performance.
@@ -37,8 +80,9 @@ A aplicação foi desenvolvida de acordo com as melhores práticas de **Clean Co
 - **Framer Motion**: Biblioteca para animações e interações suaves e dinâmicas, melhorando a UX.
 - **TypeScript**: Tipagem estática para garantir maior **robustez** e **manutenibilidade** do código.
 - **Tailwind CSS**: Framework CSS utilitário para estilização rápida e consistente.
-- **SASS / Styled Components**: Para **estilização modular** e reutilizável, garantindo escalabilidade do projeto.
+- **Tailwind / Styled Components**: Para **estilização modular** e reutilizável, garantindo escalabilidade do projeto.
 - **Docker**: Para configuração do ambiente de desenvolvimento, tornando-o portável e fácil de configurar.
+
 
 ## Funcionalidades Implementadas
 
@@ -72,6 +116,7 @@ A aplicação foi desenvolvida de acordo com as melhores práticas de **Clean Co
 7. **Modularização de Componentes**:
    - Estrutura de componentes **modulares** e reutilizáveis, como **NFTCard**, **CartButton**, **Header**, e **Footer**, melhorando a escalabilidade do código.
    - **Refatoração contínua** de componentes, aplicando **princípios de Clean Code** e **boas práticas de arquitetura**.
+
 
 ### 🚀 Atualizações Realizadas
 
@@ -130,26 +175,46 @@ A aplicação foi desenvolvida de acordo com as melhores práticas de **Clean Co
 - **Animações Interativas**: Integração com **Framer Motion** para transições e efeitos dinâmicos.
 - **Estilização Otimizada**: Uso de **SASS** e **Styled Components** para garantir modularidade e escalabilidade de estilo.
 
-#### 27/03/2025
+#### Atualizações no desenvolvimento - 2026
 
 **Branch Correspondente**:
-- `test/jest-testing-components`
+- `main`
 
-- **Testes de Componentes**: Realizei testes nos componentes principais, como Buttons, Cart Render e Product Cards, buscando garantir a robustez e a confiabilidade desses elementos essenciais. Apesar de ser uma área nova para mim, aproveitei os conhecimentos adquiridos na pós-graduação e utilizei o suporte de IA (ChatGPT) para me aprofundar nos testes e implementações. Através dessa abordagem, fui capaz de investigar e aplicar melhores práticas para garantir que os componentes funcionem corretamente em diferentes cenários.
-- **Aprendizado Contínuo**: Com base no meu desenvolvimento e aprendizado na pós-graduação, estou aprimorando minha compreensão sobre testes unitários, integração e melhores práticas para a criação de aplicações escaláveis e de alta performance.
+- **Containerização Avançada & Segurança**: 
+  - Implementação de `Dockerfile` utilizando **Multi-stage Builds** (stages: *deps*, *builder*, *runner*), segregando dependências de desenvolvimento das de produção.
+  - Ativação do modo **Next.js Standalone**, que rastreia apenas os arquivos necessários para execução, reduzindo drasticamente o tamanho da imagem final de **>1GB para ~100MB**.
+  - Configuração de usuário não-root (`nextjs`) para execução do container, mitigando riscos de segurança em ambientes de produção.
+
+- **Engenharia de Testes**: 
+  - Migração para um ambiente de testes moderno utilizando **Jest** com compilador **SWC** (baseado em Rust) para execução ultrarrápida.
+  - Atingimento de **100% de Cobertura de Código** nas regras de negócio financeiro (`cart-slice`), garantindo integridade matemática.
+  - Implementação de testes de integração no `CartButton` utilizando mocks inteligentes para isolar a lógica de orquestração da interface visual complexa.
+
+- **Arquitetura de Estado & Middleware**: 
+  - Desenvolvimento de um **Middleware Redux Nativo** para persistência de dados.
+  - A solução elimina a necessidade de bibliotecas de terceiros (como `redux-persist`), reduzindo o bundle size e oferecendo controle granular sobre quais *slices* do estado são salvos no `localStorage`, evitando overhead desnecessário.
+
+- **Resolução de Hidratação (SSR)**: 
+  - Diagnóstico e correção de erros críticos de *Hydration Mismatch* típicos do Next.js App Router.
+  - Aplicação do padrão **"Mounted State"** (via hooks customizados) para sincronizar deterministicamente a renderização inicial do servidor com o primeiro paint do cliente, assegurando uma UX fluida e sem "piscadas" de conteúdo.
+
+- **Refatoração TypeScript Strict & Linting**: 
+  - Adoção de **Strict Mode** em todo o projeto.
+  - Remoção sistemática de tipos `any` em testes e componentes, substituindo-os por interfaces tipadas e Generics.
+  - Correção de todos os *warnings* de ESLint e problemas de conformidade, resultando em um código autodocumentável e seguro em tempo de compilação.
+
+- **Estabilização da Stack & Interface**:
+  - **Correção de Layouts**: Ajustes finos de CSS/Tailwind para garantir 100% de fidelidade ao protótipo (Pixel Perfect) e corrigir quebras de layout em dispositivos móveis.
+  - **Sanitização de Código**: Remoção de *dead code*, logs de desenvolvimento e importações não utilizadas, otimizando a leitura e a performance da aplicação.
+  - **Padronização de Componentes**: Unificação da linguagem visual e comportamental dos componentes interativos (botões, modais e inputs). 
 
 
-### Atualizações nas Branches: (26/03/2025)
+### Atualizações nas Branches: 2026
 
-#### 1. Branch `main` - Deploy na Netlify
+#### 1. Branch `main` - Deploy na Vercel / Configuração Docker
 
-- **Deploy automático na Netlify**:
+- **Deploy automático na Vercel**:
   - Configuração do fluxo de deploy para atualizar automaticamente a aplicação sempre que houver modificações na branch `main`.
-
-  **Link para a aplicação em produção na Netlify**:  
-  - Exemplo: [https://67e49abd70acfe448841766a--wondrous-griffin-8da7e9.netlify.app]
-
-#### 2. Branch `docker-setup` - Configuração do ambiente de desenvolvimento utilizando Docker e Docker Compose 
 
 
 
