@@ -8,9 +8,11 @@
 ## Passo 2: Rodando o Docker Compose
 - O comando docker para iniciar a aplicação é:
 
-`docker-compose up` 
+`docker-compose up --build` 
 
-- Crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js.
+- Crucial para iniciar o ambiente de desenvolvimento completo no Docker, desde a construção da imagem até a execução do servidor Next.js. Depois da criação da imagem, o ambiente pode ser iniciado com:
+
+`docker-compose up` 
 
 ## Passo 3: Acessando a Aplicação:
 A aplicação estará disponível no navegador localmente em **http://localhost:3000** após a execução do comando docker-compose up.
